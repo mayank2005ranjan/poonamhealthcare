@@ -17,7 +17,7 @@ const UpdatesSection = () => {
   const getTranslation = (key: string, defaultValue: string): string => {
     const translation = translations[key];
     if (typeof translation === 'object' && translation !== null) {
-      return translation[language] || defaultValue;
+      return language in translation ? String(translation[language] || defaultValue) : defaultValue;
     }
     return typeof translation === 'string' ? translation : defaultValue;
   };
