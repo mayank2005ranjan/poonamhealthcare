@@ -2,8 +2,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
+  const { language, translations } = useLanguage();
+  const footerTranslations = translations.footer as Record<string, Record<'en' | 'hi', string>>;
+
   return (
     <footer className="bg-gray-900 text-white pt-12 pb-6">
       <div className="container mx-auto px-4">
@@ -14,19 +18,31 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4">{footerTranslations.quickLinks[language]}</h4>
             <div className="space-y-2">
-              <Link to="/" className="block text-gray-400 hover:text-white">Home</Link>
-              <Link to="/about" className="block text-gray-400 hover:text-white">About</Link>
-              <Link to="/services" className="block text-gray-400 hover:text-white">Services</Link>
-              <Link to="/appointment" className="block text-gray-400 hover:text-white">Book Appointment</Link>
-              <Link to="/pharmacy" className="block text-gray-400 hover:text-white">Pharmacy</Link>
-              <Link to="/contact" className="block text-gray-400 hover:text-white">Contact</Link>
+              <Link to="/" className="block text-gray-400 hover:text-white">
+                {translations.home[language as keyof typeof translations.home]}
+              </Link>
+              <Link to="/about" className="block text-gray-400 hover:text-white">
+                {translations.about[language as keyof typeof translations.about]}
+              </Link>
+              <Link to="/services" className="block text-gray-400 hover:text-white">
+                {translations.services[language as keyof typeof translations.services]}
+              </Link>
+              <Link to="/appointment" className="block text-gray-400 hover:text-white">
+                {translations.appointment[language as keyof typeof translations.appointment]}
+              </Link>
+              <Link to="/pharmacy" className="block text-gray-400 hover:text-white">
+                {translations.pharmacy[language as keyof typeof translations.pharmacy]}
+              </Link>
+              <Link to="/contact" className="block text-gray-400 hover:text-white">
+                {translations.contact[language as keyof typeof translations.contact]}
+              </Link>
             </div>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
+            <h4 className="text-lg font-semibold mb-4">{footerTranslations.contactUs[language]}</h4>
             <div className="space-y-2 text-gray-400">
               <p className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
@@ -44,7 +60,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Opening Hours</h4>
+            <h4 className="text-lg font-semibold mb-4">{footerTranslations.openingHours[language]}</h4>
             <div className="space-y-2 text-gray-400">
               <p>Monday - Saturday</p>
               <p>9:00 AM - 8:00 PM</p>

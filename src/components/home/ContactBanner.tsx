@@ -2,14 +2,17 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Phone, MessageCircle } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ContactBanner = () => {
+  const { language, translations } = useLanguage();
+
   return (
     <section className="py-12 bg-hospital-primary text-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="mb-6 md:mb-0 text-center md:text-left">
-            <h2 className="text-3xl font-bold mb-2">Need Assistance?</h2>
+            <h2 className="text-3xl font-bold mb-2">{translations.quickContact[language as keyof typeof translations.quickContact]}</h2>
             <p className="text-xl">Our team is here to help you</p>
           </div>
           
@@ -17,7 +20,7 @@ const ContactBanner = () => {
             <a href="tel:+1234567890">
               <Button variant="secondary" size="lg" className="gap-2">
                 <Phone className="h-5 w-5" />
-                Call Now
+                {translations.callNow[language as keyof typeof translations.callNow]}
               </Button>
             </a>
             
