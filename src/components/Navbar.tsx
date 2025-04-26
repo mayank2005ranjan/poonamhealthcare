@@ -3,45 +3,73 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { Globe, Phone } from 'lucide-react';
+import { Globe, Phone, Menu } from 'lucide-react';
 
 const Navbar = () => {
   const { language, setLanguage, translations } = useLanguage();
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   // Helper function to safely extract string values from translations
   const getTranslation = (key: string, defaultValue: string): string => {
     const translation = translations[key];
     if (typeof translation === 'object' && translation !== null) {
-      return translation[language] || defaultValue;
+      if (language in translation) {
+        const value = translation[language];
+        return typeof value === 'string' ? value : defaultValue;
+      }
+      return defaultValue;
     }
     return typeof translation === 'string' ? translation : defaultValue;
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="text-2xl font-bold text-hospital-primary">
-            Poonam Health Care
+          <Link to="/" className="flex items-center space-x-3">
+            {/* Logo Space */}
+            <div className="w-10 h-10 bg-hospital-primary rounded-full flex items-center justify-center">
+              <span className="text-white font-bold">PHC</span>
+            </div>
+            <span className="text-xl font-bold text-hospital-primary">
+              Poonam Health Care
+            </span>
           </Link>
           
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-hospital-primary"
+              onClick={toggleMobileMenu}
+            >
+              <Menu className="h-6 w-6" />
+            </Button>
+          </div>
+          
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link to="/" className="hover:text-hospital-primary transition-colors">
+            <Link to="/" className="text-hospital-text hover:text-hospital-primary transition-colors">
               {getTranslation('home', 'Home')}
             </Link>
-            <Link to="/about" className="hover:text-hospital-primary transition-colors">
+            <Link to="/about" className="text-hospital-text hover:text-hospital-primary transition-colors">
               {getTranslation('about', 'About Us')}
             </Link>
-            <Link to="/services" className="hover:text-hospital-primary transition-colors">
+            <Link to="/services" className="text-hospital-text hover:text-hospital-primary transition-colors">
               {getTranslation('services', 'Our Services')}
             </Link>
-            <Link to="/appointment" className="hover:text-hospital-primary transition-colors">
+            <Link to="/appointment" className="text-hospital-text hover:text-hospital-primary transition-colors">
               {getTranslation('appointment', 'Book Appointment')}
             </Link>
-            <Link to="/pharmacy" className="hover:text-hospital-primary transition-colors">
+            <Link to="/pharmacy" className="text-hospital-text hover:text-hospital-primary transition-colors">
               {getTranslation('pharmacy', 'Pharmacy')}
             </Link>
-            <Link to="/contact" className="hover:text-hospital-primary transition-colors">
+            <Link to="/contact" className="text-hospital-text hover:text-hospital-primary transition-colors">
               {getTranslation('contact', 'Contact')}
             </Link>
             
@@ -56,12 +84,51 @@ const Navbar = () => {
             </Button>
           </div>
         </div>
+        
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-t py-4">
+            <div className="flex flex-col space-y-3 px-4">
+              <Link to="/" className="text-hospital-text hover:text-hospital-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                {getTranslation('home', 'Home')}
+              </Link>
+              <Link to="/about" className="text-hospital-text hover:text-hospital-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                {getTranslation('about', 'About Us')}
+              </Link>
+              <Link to="/services" className="text-hospital-text hover:text-hospital-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                {getTranslation('services', 'Our Services')}
+              </Link>
+              <Link to="/appointment" className="text-hospital-text hover:text-hospital-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                {getTranslation('appointment', 'Book Appointment')}
+              </Link>
+              <Link to="/pharmacy" className="text-hospital-text hover:text-hospital-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                {getTranslation('pharmacy', 'Pharmacy')}
+              </Link>
+              <Link to="/contact" className="text-hospital-text hover:text-hospital-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                {getTranslation('contact', 'Contact')}
+              </Link>
+              
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => {
+                  setLanguage(language === 'en' ? 'hi' : 'en');
+                  setMobileMenuOpen(false);
+                }}
+                className="flex items-center justify-start gap-2 p-0"
+              >
+                <Globe className="h-4 w-4" />
+                {language === 'en' ? 'हिंदी' : 'English'}
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
       
       {/* Floating Call Now Button */}
       <a
         href="tel:+1234567890"
-        className="fixed bottom-6 right-6 bg-green-500 text-white rounded-full p-3 shadow-lg hover:bg-green-600 transition-colors"
+        className="fixed bottom-6 right-6 bg-hospital-accent text-white rounded-full p-3 shadow-lg hover:bg-hospital-accent/90 transition-colors"
       >
         <Phone className="h-6 w-6" />
       </a>

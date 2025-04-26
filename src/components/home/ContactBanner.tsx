@@ -11,7 +11,11 @@ const ContactBanner = () => {
   const getTranslation = (key: string, defaultValue: string): string => {
     const translation = translations[key];
     if (typeof translation === 'object' && translation !== null) {
-      return translation[language] || defaultValue;
+      if (language in translation) {
+        const value = translation[language];
+        return typeof value === 'string' ? value : defaultValue;
+      }
+      return defaultValue;
     }
     return typeof translation === 'string' ? translation : defaultValue;
   };
@@ -25,7 +29,7 @@ const ContactBanner = () => {
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="mb-6 md:mb-0 text-center md:text-left">
             <h2 className="text-3xl font-bold mb-2">{quickContactText}</h2>
-            <p className="text-xl">Our team is here to help you</p>
+            <p className="text-xl">{getTranslation('teamHelp', 'Our team is here to help you')}</p>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4">

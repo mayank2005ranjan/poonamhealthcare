@@ -65,6 +65,10 @@ const translations = {
     en: 'Need Assistance? Call us Now!',
     hi: 'सहायता चाहिए? अभी कॉल करें!',
   },
+  teamHelp: {
+    en: 'Our team is here to help you',
+    hi: 'हमारी टीम आपकी मदद के लिए यहाँ है',
+  },
   footer: {
     quickLinks: {
       en: 'Quick Links',
@@ -79,6 +83,72 @@ const translations = {
       hi: 'खुलने का समय',
     },
   },
+  footerTagline: {
+    en: 'Your trusted partner in health and wellness.',
+    hi: 'स्वास्थ्य और कल्याण में आपका विश्वसनीय साथी।',
+  },
+  weekdays: {
+    en: 'Monday - Saturday',
+    hi: 'सोमवार - शनिवार',
+  },
+  hours: {
+    en: '9:00 AM - 8:00 PM',
+    hi: 'सुबह 9:00 बजे - शाम 8:00 बजे',
+  },
+  emergency: {
+    en: 'Emergency: 24/7',
+    hi: 'आपातकालीन: 24/7',
+  },
+  rightsReserved: {
+    en: 'All rights reserved.',
+    hi: 'सर्वाधिकार सुरक्षित।',
+  },
+  findUs: {
+    en: 'Find Us',
+    hi: 'हमें ढूंढें',
+  },
+  visitLocation: {
+    en: 'Visit our location in Jhanjharpur',
+    hi: 'झंझारपुर में हमारे स्थान पर जाएँ',
+  },
+  getDirections: {
+    en: 'Get Directions',
+    hi: 'रास्ता पाएं',
+  },
+  latestUpdates: {
+    en: 'Latest Updates',
+    hi: 'नवीनतम अपडेट',
+  },
+  stayInformed: {
+    en: 'Stay informed about our services and events',
+    hi: 'हमारी सेवाओं और कार्यक्रमों के बारे में जानकारी प्राप्त करें',
+  },
+  updates: {
+    eyeCamp: {
+      en: 'Free Eye Camp on 5th May!',
+      hi: '5 मई को निःशुल्क आंख शिविर!',
+    },
+    eyeCampDate: {
+      en: 'April 20, 2025',
+      hi: '20 अप्रैल, 2025',
+    },
+    diabetes: {
+      en: 'New Diabetes Specialist Available',
+      hi: 'नए मधुमेह विशेषज्ञ उपलब्ध',
+    },
+    diabetesDate: {
+      en: 'April 15, 2025',
+      hi: '15 अप्रैल, 2025',
+    },
+    blood: {
+      en: 'Emergency Blood Collection Service started',
+      hi: 'आपातकालीन रक्त संग्रह सेवा शुरू की गई',
+    },
+    bloodDate: {
+      en: 'April 10, 2025',
+      hi: '10 अप्रैल, 2025',
+    },
+  }
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);

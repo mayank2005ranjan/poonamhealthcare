@@ -12,7 +12,11 @@ const HeroSection = () => {
   const getTranslation = (key: string, defaultValue: string): string => {
     const translation = translations[key];
     if (typeof translation === 'object' && translation !== null) {
-      return translation[language] || defaultValue;
+      if (language in translation) {
+        const value = translation[language];
+        return typeof value === 'string' ? value : defaultValue;
+      }
+      return defaultValue;
     }
     return typeof translation === 'string' ? translation : defaultValue;
   };
@@ -36,7 +40,7 @@ const HeroSection = () => {
           </p>
           <div className="flex gap-4">
             <Link to="/appointment">
-              <Button size="lg" variant="default" className="gap-2">
+              <Button size="lg" variant="default" className="gap-2 bg-hospital-accent hover:bg-hospital-accent/90">
                 <Calendar className="h-5 w-5" />
                 {bookAppointmentText}
               </Button>

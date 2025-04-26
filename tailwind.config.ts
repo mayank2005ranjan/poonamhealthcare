@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -20,11 +21,11 @@ export default {
     extend: {
       colors: {
         hospital: {
-          primary: "#0EA5E9",
-          secondary: "#D3E4FD",
-          background: "#FFFFFF",
-          text: "#2D3748",
-          accent: "#22C55E",
+          primary: "#0B2C5F",    // Updated to Navy Blue
+          secondary: "#E6F0FA",  // Updated to Light Blue (highlight)
+          background: "#F9FAFB", // Updated to Light Grey/White
+          text: "#4A4A4A",       // Updated to Dark Grey
+          accent: "#28C76F",     // Updated to Bright Green
         },
         border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
