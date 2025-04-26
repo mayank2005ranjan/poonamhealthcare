@@ -17,12 +17,13 @@ const Footer = () => {
         const parentObj = translations[parent];
         if (typeof parentObj === 'object' && parentObj !== null && child in parentObj) {
           const childObj = parentObj[child];
-          if (typeof childObj === 'object' && childObj !== null) {
+          if (typeof childObj === 'object' && childObj !== null && language in childObj) {
             return childObj[language] || defaultValue;
           }
         }
         return defaultValue;
       }
+      // Handle non-nested objects with language keys
       return translation[language] || defaultValue;
     }
     return typeof translation === 'string' ? translation : defaultValue;
