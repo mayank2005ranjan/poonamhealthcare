@@ -3,8 +3,8 @@ import React, { createContext, useContext, useState } from 'react';
 
 type Language = 'en' | 'hi';
 
-// Updated type definition to allow for nested structures
-type TranslationValue = Record<Language, string> | Record<string, Record<Language, string>>;
+// Define a more precise type for translations
+type TranslationValue = string | Record<Language, string> | Record<string, Record<Language, string>>;
 
 type LanguageContextType = {
   language: Language;

@@ -21,22 +21,22 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">{footerTranslations.quickLinks[language]}</h4>
             <div className="space-y-2">
               <Link to="/" className="block text-gray-400 hover:text-white">
-                {translations.home[language as keyof typeof translations.home]}
+                {translations.home[language]}
               </Link>
               <Link to="/about" className="block text-gray-400 hover:text-white">
-                {translations.about[language as keyof typeof translations.about]}
+                {translations.about[language]}
               </Link>
               <Link to="/services" className="block text-gray-400 hover:text-white">
-                {translations.services[language as keyof typeof translations.services]}
+                {translations.services[language]}
               </Link>
               <Link to="/appointment" className="block text-gray-400 hover:text-white">
-                {translations.appointment[language as keyof typeof translations.appointment]}
+                {translations.appointment[language]}
               </Link>
               <Link to="/pharmacy" className="block text-gray-400 hover:text-white">
-                {translations.pharmacy[language as keyof typeof translations.pharmacy]}
+                {translations.pharmacy[language]}
               </Link>
               <Link to="/contact" className="block text-gray-400 hover:text-white">
-                {translations.contact[language as keyof typeof translations.contact]}
+                {translations.contact[language]}
               </Link>
             </div>
           </div>

@@ -6,13 +6,23 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const ContactBanner = () => {
   const { language, translations } = useLanguage();
+  
+  // Ensure we access the correct structure for quickContact translation
+  const quickContactText = translations.quickContact && typeof translations.quickContact === 'object'
+    ? translations.quickContact[language]
+    : "Need Assistance? Call us Now!";
+  
+  // Ensure we access the correct structure for callNow translation
+  const callNowText = translations.callNow && typeof translations.callNow === 'object'
+    ? translations.callNow[language]
+    : "Call Now";
 
   return (
     <section className="py-12 bg-hospital-primary text-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="mb-6 md:mb-0 text-center md:text-left">
-            <h2 className="text-3xl font-bold mb-2">{translations.quickContact[language as keyof typeof translations.quickContact]}</h2>
+            <h2 className="text-3xl font-bold mb-2">{quickContactText}</h2>
             <p className="text-xl">Our team is here to help you</p>
           </div>
           
@@ -20,7 +30,7 @@ const ContactBanner = () => {
             <a href="tel:+1234567890">
               <Button variant="secondary" size="lg" className="gap-2">
                 <Phone className="h-5 w-5" />
-                {translations.callNow[language as keyof typeof translations.callNow]}
+                {callNowText}
               </Button>
             </a>
             
