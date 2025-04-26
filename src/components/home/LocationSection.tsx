@@ -20,11 +20,11 @@ const LocationSection = () => {
   const googleMapsUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3574.880430694033!2d86.27569737640374!3d26.262805583422843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ee78c78e1897cd%3A0x9f4da0b66d66f93e!2sPoonam%20Health%20Care!5e0!3m2!1sen!2sin!4v1714289692756!5m2!1sen!2sin";
 
   const handleGetDirections = () => {
-    window.open("https://www.google.com/maps/place/Poonam+Health+Care/@26.2628056,86.2778856,17z", "_blank");
+    window.open("https://maps.app.goo.gl/sX9iTDiR3Ydfuw6X7", "_blank");
   };
 
   return (
-    <section className="py-16 bg-hospital-background">
+    <section className="py-16 bg-hospital-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-hospital-primary mb-2">{getTranslation('findUs', 'Find Us')}</h2>

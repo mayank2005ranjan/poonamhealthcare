@@ -18,15 +18,14 @@ const Footer = () => {
         if (typeof parentObj === 'object' && parentObj !== null && child in parentObj) {
           const childObj = parentObj[child];
           if (typeof childObj === 'object' && childObj !== null && language in childObj) {
-            return childObj[language] || defaultValue;
+            return String(childObj[language]) || defaultValue;
           }
         }
         return defaultValue;
       }
       // Handle non-nested objects with language keys
       if (language in translation) {
-        const value = translation[language];
-        return typeof value === 'string' ? value : defaultValue;
+        return String(translation[language]) || defaultValue;
       }
       return defaultValue;
     }
@@ -71,15 +70,17 @@ const Footer = () => {
             <div className="space-y-2 text-gray-300">
               <p className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                +1234567890
+                <a href="tel:9534800801" className="hover:text-white">9534800801</a>
               </p>
               <p className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                contact@poonamhealthcare.com
+                <a href="mailto:support.phc@gmail.com" className="hover:text-white">support.phc@gmail.com</a>
               </p>
               <p className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                Ward Number 9, Jhanjharpur, Bihar 847404
+                <a href="https://maps.app.goo.gl/sX9iTDiR3Ydfuw6X7" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                  Ward Number 9, Jhanjharpur, Bihar 847404
+                </a>
               </p>
             </div>
           </div>
@@ -87,8 +88,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">{getTranslation('footer.openingHours', 'Opening Hours')}</h4>
             <div className="space-y-2 text-gray-300">
-              <p>{getTranslation('weekdays', 'Monday - Saturday')}</p>
-              <p>{getTranslation('hours', '9:00 AM - 8:00 PM')}</p>
+              <p>{getTranslation('openingHours', '24/7')}</p>
               <p className="text-hospital-accent">{getTranslation('emergency', 'Emergency: 24/7')}</p>
             </div>
           </div>

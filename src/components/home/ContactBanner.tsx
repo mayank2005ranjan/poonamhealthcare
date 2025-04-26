@@ -12,8 +12,7 @@ const ContactBanner = () => {
     const translation = translations[key];
     if (typeof translation === 'object' && translation !== null) {
       if (language in translation) {
-        const value = translation[language];
-        return typeof value === 'string' ? value : defaultValue;
+        return String(translation[language]) || defaultValue;
       }
       return defaultValue;
     }
@@ -33,14 +32,14 @@ const ContactBanner = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="tel:+1234567890">
+            <a href="tel:9534800801">
               <Button variant="secondary" size="lg" className="gap-2">
                 <Phone className="h-5 w-5" />
                 {callNowText}
               </Button>
             </a>
             
-            <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/9534800801" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="lg" className="gap-2 bg-transparent text-white border-white hover:bg-white hover:text-hospital-primary">
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp

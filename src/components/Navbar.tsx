@@ -14,8 +14,7 @@ const Navbar = () => {
     const translation = translations[key];
     if (typeof translation === 'object' && translation !== null) {
       if (language in translation) {
-        const value = translation[language];
-        return typeof value === 'string' ? value : defaultValue;
+        return String(translation[language]) || defaultValue;
       }
       return defaultValue;
     }
@@ -31,9 +30,16 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-3">
-            {/* Logo Space */}
-            <div className="w-10 h-10 bg-hospital-primary rounded-full flex items-center justify-center">
-              <span className="text-white font-bold">PHC</span>
+            {/* Logo */}
+            <div className="h-10 w-10">
+              <img 
+                src="/logo.png" 
+                alt="PHC Logo" 
+                className="h-full w-full object-contain"
+                onError={(e) => {
+                  e.currentTarget.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="%230B2C5F" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v2"></path><path d="M16 3v2"></path><path d="M4 11h16"></path><path d="M11 15h1"></path><path d="M12 15v3"></path><rect x="3" y="5" width="18" height="16" rx="2"></rect></svg>';
+                }}
+              />
             </div>
             <span className="text-xl font-bold text-hospital-primary">
               Poonam Health Care
@@ -127,7 +133,7 @@ const Navbar = () => {
       
       {/* Floating Call Now Button */}
       <a
-        href="tel:+1234567890"
+        href="tel:9534800801"
         className="fixed bottom-6 right-6 bg-hospital-accent text-white rounded-full p-3 shadow-lg hover:bg-hospital-accent/90 transition-colors"
       >
         <Phone className="h-6 w-6" />
