@@ -1,15 +1,16 @@
+
 import React, { createContext, useContext, useState } from 'react';
 
 type Language = 'en' | 'hi';
 
-// Define a more precise type for translations
-type TranslationValue = string | Record<Language, string>;
-type NestedTranslation = Record<string, TranslationValue | Record<string, TranslationValue>>;
+// Define more precise types to handle deeply nested translation structures
+type SimpleTranslation = string | Record<Language, string>;
+type TranslationRecord = Record<string, SimpleTranslation | TranslationRecord>;
 
 type LanguageContextType = {
   language: Language;
   setLanguage: (lang: Language) => void;
-  translations: Record<string, TranslationValue | NestedTranslation>;
+  translations: TranslationRecord;
 };
 
 const translations = {

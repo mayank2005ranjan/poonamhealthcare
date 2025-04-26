@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Phone, MessageCircle, Mail, Clock, MapPin } from 'lucide-react';
+import { Phone, MessageCircle, Mail, Clock, MapPin, Check } from 'lucide-react';
 import { Pill, Clock as ClockIcon, CheckCircle, Truck } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
