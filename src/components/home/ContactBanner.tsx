@@ -7,15 +7,17 @@ import { useLanguage } from '@/contexts/LanguageContext';
 const ContactBanner = () => {
   const { language, translations } = useLanguage();
   
-  // Ensure we access the correct structure for quickContact translation
-  const quickContactText = translations.quickContact && typeof translations.quickContact === 'object'
-    ? translations.quickContact[language]
-    : "Need Assistance? Call us Now!";
+  // Create helper function to safely get translated string
+  const getTranslation = (key: string, defaultValue: string): string => {
+    const translation = translations[key];
+    if (typeof translation === 'object' && translation !== null) {
+      return translation[language] || defaultValue;
+    }
+    return typeof translation === 'string' ? translation : defaultValue;
+  };
   
-  // Ensure we access the correct structure for callNow translation
-  const callNowText = translations.callNow && typeof translations.callNow === 'object'
-    ? translations.callNow[language]
-    : "Call Now";
+  const quickContactText = getTranslation('quickContact', "Need Assistance? Call us Now!");
+  const callNowText = getTranslation('callNow', "Call Now");
 
   return (
     <section className="py-12 bg-hospital-primary text-white">

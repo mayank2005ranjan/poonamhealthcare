@@ -8,22 +8,20 @@ import { useLanguage } from '@/contexts/LanguageContext';
 const HeroSection = () => {
   const { language, translations } = useLanguage();
 
-  // Safely extract string values from translation objects
-  const heroHeadingText = typeof translations.heroHeading === 'object'
-    ? translations.heroHeading[language]
-    : "Your Trusted Partner in Health and Wellness";
+  // Helper function to safely extract string values from translations
+  const getTranslation = (key: string, defaultValue: string): string => {
+    const translation = translations[key];
+    if (typeof translation === 'object' && translation !== null) {
+      return translation[language] || defaultValue;
+    }
+    return typeof translation === 'string' ? translation : defaultValue;
+  };
 
-  const heroSubheadingText = typeof translations.heroSubheading === 'object'
-    ? translations.heroSubheading[language]
-    : "Expert Care | Trusted Doctors | Compassionate Service";
-
-  const bookAppointmentText = typeof translations.bookAppointment === 'object'
-    ? translations.bookAppointment[language]
-    : "Book Appointment";
-
-  const callNowText = typeof translations.callNow === 'object'
-    ? translations.callNow[language]
-    : "Call Now";
+  // Get translated text with fallbacks
+  const heroHeadingText = getTranslation('heroHeading', "Your Trusted Partner in Health and Wellness");
+  const heroSubheadingText = getTranslation('heroSubheading', "Expert Care | Trusted Doctors | Compassionate Service");
+  const bookAppointmentText = getTranslation('bookAppointment', "Book Appointment");
+  const callNowText = getTranslation('callNow', "Call Now");
 
   return (
     <div className="relative h-[600px] bg-gradient-to-r from-hospital-primary/90 to-hospital-primary">

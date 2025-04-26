@@ -6,7 +6,27 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
   const { language, translations } = useLanguage();
-  const footerTranslations = translations.footer as Record<string, Record<'en' | 'hi', string>>;
+  
+  // Helper function to safely extract string values from translations
+  const getTranslation = (key: string, defaultValue: string): string => {
+    const translation = translations[key];
+    if (typeof translation === 'object' && translation !== null) {
+      // Handle nested objects like footer.quickLinks
+      if (key.includes('.')) {
+        const [parent, child] = key.split('.');
+        const parentObj = translations[parent];
+        if (typeof parentObj === 'object' && parentObj !== null && child in parentObj) {
+          const childObj = parentObj[child];
+          if (typeof childObj === 'object' && childObj !== null) {
+            return childObj[language] || defaultValue;
+          }
+        }
+        return defaultValue;
+      }
+      return translation[language] || defaultValue;
+    }
+    return typeof translation === 'string' ? translation : defaultValue;
+  };
 
   return (
     <footer className="bg-gray-900 text-white pt-12 pb-6">
@@ -18,31 +38,31 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">{footerTranslations.quickLinks[language]}</h4>
+            <h4 className="text-lg font-semibold mb-4">{getTranslation('footer.quickLinks', 'Quick Links')}</h4>
             <div className="space-y-2">
               <Link to="/" className="block text-gray-400 hover:text-white">
-                {translations.home[language]}
+                {getTranslation('home', 'Home')}
               </Link>
               <Link to="/about" className="block text-gray-400 hover:text-white">
-                {translations.about[language]}
+                {getTranslation('about', 'About Us')}
               </Link>
               <Link to="/services" className="block text-gray-400 hover:text-white">
-                {translations.services[language]}
+                {getTranslation('services', 'Our Services')}
               </Link>
               <Link to="/appointment" className="block text-gray-400 hover:text-white">
-                {translations.appointment[language]}
+                {getTranslation('appointment', 'Book Appointment')}
               </Link>
               <Link to="/pharmacy" className="block text-gray-400 hover:text-white">
-                {translations.pharmacy[language]}
+                {getTranslation('pharmacy', 'Pharmacy')}
               </Link>
               <Link to="/contact" className="block text-gray-400 hover:text-white">
-                {translations.contact[language]}
+                {getTranslation('contact', 'Contact')}
               </Link>
             </div>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">{footerTranslations.contactUs[language]}</h4>
+            <h4 className="text-lg font-semibold mb-4">{getTranslation('footer.contactUs', 'Contact Us')}</h4>
             <div className="space-y-2 text-gray-400">
               <p className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
@@ -60,7 +80,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">{footerTranslations.openingHours[language]}</h4>
+            <h4 className="text-lg font-semibold mb-4">{getTranslation('footer.openingHours', 'Opening Hours')}</h4>
             <div className="space-y-2 text-gray-400">
               <p>Monday - Saturday</p>
               <p>9:00 AM - 8:00 PM</p>

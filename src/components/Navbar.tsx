@@ -8,6 +8,15 @@ import { Globe, Phone } from 'lucide-react';
 const Navbar = () => {
   const { language, setLanguage, translations } = useLanguage();
 
+  // Helper function to safely extract string values from translations
+  const getTranslation = (key: string, defaultValue: string): string => {
+    const translation = translations[key];
+    if (typeof translation === 'object' && translation !== null) {
+      return translation[language] || defaultValue;
+    }
+    return typeof translation === 'string' ? translation : defaultValue;
+  };
+
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="container mx-auto px-4">
@@ -18,22 +27,22 @@ const Navbar = () => {
           
           <div className="hidden md:flex items-center space-x-4">
             <Link to="/" className="hover:text-hospital-primary transition-colors">
-              {translations.home[language]}
+              {getTranslation('home', 'Home')}
             </Link>
             <Link to="/about" className="hover:text-hospital-primary transition-colors">
-              {translations.about[language]}
+              {getTranslation('about', 'About Us')}
             </Link>
             <Link to="/services" className="hover:text-hospital-primary transition-colors">
-              {translations.services[language]}
+              {getTranslation('services', 'Our Services')}
             </Link>
             <Link to="/appointment" className="hover:text-hospital-primary transition-colors">
-              {translations.appointment[language]}
+              {getTranslation('appointment', 'Book Appointment')}
             </Link>
             <Link to="/pharmacy" className="hover:text-hospital-primary transition-colors">
-              {translations.pharmacy[language]}
+              {getTranslation('pharmacy', 'Pharmacy')}
             </Link>
             <Link to="/contact" className="hover:text-hospital-primary transition-colors">
-              {translations.contact[language]}
+              {getTranslation('contact', 'Contact')}
             </Link>
             
             <Button
