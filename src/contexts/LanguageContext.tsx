@@ -1,15 +1,15 @@
-
 import React, { createContext, useContext, useState } from 'react';
 
 type Language = 'en' | 'hi';
 
 // Define a more precise type for translations
-type TranslationValue = string | Record<Language, string> | Record<string, Record<Language, string>>;
+type TranslationValue = string | Record<Language, string>;
+type NestedTranslation = Record<string, TranslationValue | Record<string, TranslationValue>>;
 
 type LanguageContextType = {
   language: Language;
   setLanguage: (lang: Language) => void;
-  translations: Record<string, TranslationValue>;
+  translations: Record<string, TranslationValue | NestedTranslation>;
 };
 
 const translations = {
@@ -311,7 +311,7 @@ const translations = {
     }
   },
   // Services Page Translations
-  services: {
+  servicesPage: { // Renamed from 'services' to avoid conflicts
     hero: {
       title: {
         en: 'Our Healthcare Services',
@@ -474,7 +474,7 @@ const translations = {
     }
   },
   // Appointment Page Translations
-  appointment: {
+  appointmentPage: { // Renamed from 'appointment' to avoid conflicts
     hero: {
       title: {
         en: 'Book Your Appointment',
@@ -527,7 +527,7 @@ const translations = {
     }
   },
   // Pharmacy Page Translations
-  pharmacy: {
+  pharmacyPage: { // Renamed from 'pharmacy' to avoid conflicts
     hero: {
       title: {
         en: 'Poonam Health Care Pharmacy',
@@ -694,7 +694,7 @@ const translations = {
     }
   },
   // Contact Page Translations
-  contact: {
+  contactPage: { // Renamed from 'contact' to avoid conflicts
     hero: {
       title: {
         en: 'Get In Touch With Us',

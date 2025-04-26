@@ -1,9 +1,10 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Pill, Phone, Truck, Clock, Check } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { Phone, MessageCircle, Mail, Clock, MapPin } from 'lucide-react';
+import { Pill, Clock as ClockIcon, CheckCircle, Truck } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { useLanguage } from '@/contexts/LanguageContext';
 import Footer from '@/components/Footer';
 
 const Pharmacy = () => {
@@ -11,11 +12,29 @@ const Pharmacy = () => {
   
   // Helper function to safely extract string values from translations
   const getTranslation = (key: string, defaultValue: string): string => {
-    const translation = translations[key];
-    if (typeof translation === 'object' && translation !== null) {
-      return language in translation ? String(translation[language] || defaultValue) : defaultValue;
+    const parts = key.split('.');
+    
+    // Replace 'pharmacy.' with 'pharmacyPage.' to match our updated structure
+    if (parts[0] === 'pharmacy') {
+      parts[0] = 'pharmacyPage';
     }
-    return typeof translation === 'string' ? translation : defaultValue;
+    
+    const newKey = parts.join('.');
+    let current: any = translations;
+    
+    for (const part of parts) {
+      if (current && typeof current === 'object' && part in current) {
+        current = current[part];
+      } else {
+        return defaultValue;
+      }
+    }
+    
+    if (typeof current === 'object' && language in current) {
+      return String(current[language] || defaultValue);
+    }
+    
+    return typeof current === 'string' ? current : defaultValue;
   };
 
   interface Feature {
