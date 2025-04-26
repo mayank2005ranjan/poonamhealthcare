@@ -1,22 +1,36 @@
 
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import HeroSection from '@/components/home/HeroSection';
+import AboutPreview from '@/components/home/AboutPreview';
+import DoctorsSection from '@/components/home/DoctorsSection';
+import ServicesPreview from '@/components/home/ServicesPreview';
+import AppointmentSection from '@/components/home/AppointmentSection';
+import UpdatesSection from '@/components/home/UpdatesSection';
+import LocationSection from '@/components/home/LocationSection';
+import TestimonialsSection from '@/components/home/TestimonialsSection';
+import GalleryPreview from '@/components/home/GalleryPreview';
+import ContactBanner from '@/components/home/ContactBanner';
+import Footer from '@/components/Footer';
 
 const Home = () => {
-  const { language, translations } = useLanguage();
+  const { language } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-hospital-background">
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-hospital-primary mb-4">
-            {translations.welcomeMessage[language]}
-          </h1>
-          <p className="text-xl text-hospital-text mt-4">
-            {translations.welcomeSubtext[language]}
-          </p>
-        </div>
-      </div>
+    <div className="min-h-screen bg-white">
+      <main>
+        <HeroSection />
+        <AboutPreview />
+        <DoctorsSection />
+        <ServicesPreview />
+        <AppointmentSection />
+        <UpdatesSection />
+        <LocationSection />
+        <TestimonialsSection />
+        <GalleryPreview />
+        <ContactBanner />
+      </main>
+      <Footer />
     </div>
   );
 };

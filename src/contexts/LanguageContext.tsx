@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState } from 'react';
 
 type Language = 'en' | 'hi';
@@ -41,6 +40,40 @@ const translations = {
   welcomeSubtext: {
     en: 'Your health is our priority. Experience world-class medical care.',
     hi: 'आपका स्वास्थ्य हमारी प्राथमिकता है। विश्व स्तरीय चिकित्सा देखभाल का अनुभव करें।',
+  },
+  heroHeading: {
+    en: 'Your Trusted Partner in Health and Wellness',
+    hi: 'स्वास्थ्य और कल्याण में आपका विश्वसनीय साथी',
+  },
+  heroSubheading: {
+    en: 'Expert Care | Trusted Doctors | Compassionate Service',
+    hi: 'विशेषज्ञ देखभाल | विश्वसनीय डॉक्टर | करुणामय सेवा',
+  },
+  bookAppointment: {
+    en: 'Book Appointment',
+    hi: 'अपॉइंटमेंट बुक करें',
+  },
+  callNow: {
+    en: 'Call Now',
+    hi: 'अभी कॉल करें',
+  },
+  quickContact: {
+    en: 'Need Assistance? Call us Now!',
+    hi: 'सहायता चाहिए? अभी कॉल करें!',
+  },
+  footer: {
+    quickLinks: {
+      en: 'Quick Links',
+      hi: 'त्वरित लिंक',
+    },
+    contactUs: {
+      en: 'Contact Us',
+      hi: 'संपर्क करें',
+    },
+    openingHours: {
+      en: 'Opening Hours',
+      hi: 'खुलने का समय',
+    },
   },
 };
 

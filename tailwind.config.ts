@@ -24,6 +24,7 @@ export default {
           secondary: "#D3E4FD",
           background: "#FFFFFF",
           text: "#2D3748",
+          accent: "#22C55E",
         },
         border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
