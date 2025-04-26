@@ -53,7 +53,7 @@ const Services = () => {
     {
       id: 4,
       title: getTranslation('services.gynecologist.title', 'Gynecologist Consultations'),
-      description: getTranslation('services.gynecologist.description', 'Expert women's healthcare for all stages of life.'),
+      description: getTranslation('services.gynecologist.description', "Expert women's healthcare for all stages of life."),
       icon: <User className="w-12 h-12 text-purple-500" />
     },
     {

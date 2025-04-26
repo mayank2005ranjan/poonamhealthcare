@@ -27,7 +27,7 @@ const Contact = () => {
               {getTranslation('contact.hero.title', 'Get In Touch With Us')}
             </h1>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              {getTranslation('contact.hero.subtitle', 'We're here to help you with your health needs. Contact us easily below!')}
+              {getTranslation('contact.hero.subtitle', "We're here to help you with your health needs. Contact us easily below!")}
             </p>
           </div>
         </section>

@@ -180,7 +180,7 @@ const translations = {
           hi: 'हमारा विजन'
         },
         content: {
-          en: 'At Poonam Health Care, our vision is to become the most trusted healthcare partner for every family in Jhanjharpur and surrounding areas. We aspire to set new standards in community healthcare by delivering affordable, accessible, and compassionate medical services — ensuring that health and wellness are within everyone\'s reach.',
+          en: "At Poonam Health Care, our vision is to become the most trusted healthcare partner for every family in Jhanjharpur and surrounding areas. We aspire to set new standards in community healthcare by delivering affordable, accessible, and compassionate medical services — ensuring that health and wellness are within everyone's reach.",
           hi: 'पूनम हेल्थ केयर में, हमारा विजन झंझारपुर और आसपास के क्षेत्रों के हर परिवार के लिए सबसे विश्वसनीय स्वास्थ्य सेवा साझेदार बनना है। हम किफायती, सुलभ और करुणामय चिकित्सा सेवाएं प्रदान करके सामुदायिक स्वास्थ्य सेवा में नए मानक स्थापित करने का लक्ष्य रखते हैं — यह सुनिश्चित करते हुए कि स्वास्थ्य और कल्याण हर किसी की पहुंच के भीतर हो।'
         }
       },
@@ -358,7 +358,7 @@ const translations = {
         hi: 'स्त्री रोग विशेषज्ञ परामर्श'
       },
       description: {
-        en: 'Expert women\'s healthcare for all stages of life.',
+        en: "Expert women's healthcare for all stages of life.",
         hi: 'जीवन के सभी चरणों के लिए विशेषज्ञ महिला स्वास्थ्य सेवा।'
       }
     },
@@ -701,7 +701,7 @@ const translations = {
         hi: 'हमसे संपर्क करें'
       },
       subtitle: {
-        en: 'We're here to help you with your health needs. Contact us easily below!',
+        en: "We're here to help you with your health needs. Contact us easily below!",
         hi: 'हम आपकी स्वास्थ्य जरूरतों में आपकी मदद करने के लिए यहां हैं। नीचे आसानी से हमसे संपर्क करें!'
       }
     },

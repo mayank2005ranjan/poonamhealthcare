@@ -61,7 +61,7 @@ const AboutUs = () => {
                 </h3>
                 <p className="text-gray-600 mb-6">
                   {getTranslation('aboutUs.ourStory.vision.content', 
-                    'At Poonam Health Care, our vision is to become the most trusted healthcare partner for every family in Jhanjharpur and surrounding areas. We aspire to set new standards in community healthcare by delivering affordable, accessible, and compassionate medical services — ensuring that health and wellness are within everyone's reach.'
+                    "At Poonam Health Care, our vision is to become the most trusted healthcare partner for every family in Jhanjharpur and surrounding areas. We aspire to set new standards in community healthcare by delivering affordable, accessible, and compassionate medical services — ensuring that health and wellness are within everyone's reach."
                   )}
                 </p>
               </div>
