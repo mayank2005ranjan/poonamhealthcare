@@ -95,7 +95,18 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-300">
-          <p>&copy; {new Date().getFullYear()} Poonam Health Care. {getTranslation('rightsReserved', 'All rights reserved.')}</p>
+          <p>&copy; 2025 Poonam Health Care. All Rights Reserved.</p>
+          <div className="flex flex-wrap justify-center gap-x-4 mt-2 text-sm">
+            <Link to="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
+            <span className="hidden md:inline">|</span>
+            <Link to="/terms-conditions" className="hover:text-white">Terms & Conditions</Link>
+            <span className="hidden md:inline">|</span>
+            <Link to="/disclaimer" className="hover:text-white">Disclaimer</Link>
+            <span className="hidden md:inline">|</span>
+            <Link to="/refund-policy" className="hover:text-white">Refund & Cancellation Policy</Link>
+            <span className="hidden md:inline">|</span>
+            <Link to="/patient-rights" className="hover:text-white">Patient Rights & Responsibilities</Link>
+          </div>
         </div>
       </div>
     </footer>

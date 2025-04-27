@@ -13,6 +13,11 @@ import Services from "./pages/Services";
 import Appointment from "./pages/Appointment";
 import Pharmacy from "./pages/Pharmacy";
 import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsConditions from "./pages/TermsConditions";
+import Disclaimer from "./pages/Disclaimer";
+import RefundPolicy from "./pages/RefundPolicy";
+import PatientRights from "./pages/PatientRights";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +37,14 @@ const App = () => {
                 <Route path="/appointment" element={<Appointment />} />
                 <Route path="/pharmacy" element={<Pharmacy />} />
                 <Route path="/contact" element={<Contact />} />
+                
+                {/* Policy Pages */}
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-conditions" element={<TermsConditions />} />
+                <Route path="/disclaimer" element={<Disclaimer />} />
+                <Route path="/refund-policy" element={<RefundPolicy />} />
+                <Route path="/patient-rights" element={<PatientRights />} />
+                
                 <Route path="*" element={<NotFound />} />
               </Routes>
               <Toaster />

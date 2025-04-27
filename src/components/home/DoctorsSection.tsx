@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 interface Doctor {
   id: number;
   name: string;
+  degree: string;
   department: string;
   experience: string;
   bio: string;
@@ -17,6 +18,7 @@ const doctors: Doctor[] = [
   {
     id: 1,
     name: "Dr. Anjali Sharma",
+    degree: "MBBS, MS (Ophthalmology)",
     department: "Eye Specialist",
     experience: "10+ Years",
     bio: "Specialist in cataract and LASIK surgeries.",
@@ -25,6 +27,7 @@ const doctors: Doctor[] = [
   {
     id: 2,
     name: "Dr. Ravi Kumar",
+    degree: "MBBS, MD (Internal Medicine)",
     department: "Diabetologist",
     experience: "8+ Years",
     bio: "Expert in diabetes management and lifestyle counseling.",
@@ -33,6 +36,7 @@ const doctors: Doctor[] = [
   {
     id: 3,
     name: "Dr. Priya Verma",
+    degree: "MBBS, MS (Gynecology)",
     department: "Gynecologist",
     experience: "12+ Years",
     bio: "Specialized in women's health and prenatal care.",
@@ -64,6 +68,7 @@ const DoctorsSection = () => {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-hospital-primary mb-1">{doctor.name}</h3>
+                <p className="text-gray-600 mb-1">{doctor.degree}</p>
                 <p className="text-gray-600 font-semibold mb-2">{doctor.department}</p>
                 <div className="flex justify-between items-center mb-3">
                   <span className="bg-hospital-secondary/20 text-hospital-secondary text-sm px-3 py-1 rounded-full">

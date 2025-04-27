@@ -10,6 +10,7 @@ import UpdatesSection from '@/components/home/UpdatesSection';
 import LocationSection from '@/components/home/LocationSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import GalleryPreview from '@/components/home/GalleryPreview';
+import FAQSection from '@/components/home/FAQSection';
 import ContactBanner from '@/components/home/ContactBanner';
 import Footer from '@/components/Footer';
 
@@ -28,6 +29,7 @@ const Home = () => {
         <LocationSection />
         <TestimonialsSection />
         <GalleryPreview />
+        <FAQSection />
         <ContactBanner />
       </main>
       <Footer />

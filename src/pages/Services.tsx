@@ -134,6 +134,43 @@ const Services = () => {
           </div>
         </section>
         
+        {/* Book Appointment Section - Added as requested (similar to Homepage) */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <div className="w-full md:w-1/2">
+                <img 
+                  src="/qr-code.jpg" 
+                  alt="Payment QR Code" 
+                  className="rounded-lg shadow-md w-full max-w-md mx-auto"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://placehold.co/400x400?text=UPI+QR+Code';
+                  }}
+                />
+              </div>
+              
+              <div className="w-full md:w-1/2 text-center md:text-left">
+                <h2 className="text-3xl font-bold text-gray-800 mb-4">Book an Appointment</h2>
+                <p className="text-gray-600 mb-6">
+                  Schedule your appointment with our specialists today. Quick and easy booking process 
+                  to save your valuable time.
+                </p>
+                
+                <a href="https://forms.gle/61B9jdr785XrSh2D7" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="gap-2">
+                    <Calendar className="h-5 w-5" />
+                    Book Appointment
+                  </Button>
+                </a>
+                
+                <p className="mt-4 text-sm text-gray-500">
+                  Quick and Easy Booking! Scan the QR code for payment after confirmation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         {/* Why Choose Our Services */}
         <section className="py-12 bg-hospital-secondary">
           <div className="container mx-auto px-4">
@@ -178,20 +215,6 @@ const Services = () => {
                 </h3>
               </div>
             </div>
-          </div>
-        </section>
-        
-        {/* Book Appointment CTA */}
-        <section className="py-12 bg-hospital-primary text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl font-bold mb-4">
-              {getTranslation('services.bookCTA.title', 'Need expert care? Book your appointment today!')}
-            </h2>
-            <a href="https://forms.gle/61B9jdr785XrSh2D7" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="secondary">
-                {getTranslation('services.bookCTA.button', 'Book Now')}
-              </Button>
-            </a>
           </div>
         </section>
         

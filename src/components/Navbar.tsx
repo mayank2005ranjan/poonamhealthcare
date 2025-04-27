@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Globe, Phone, Menu } from 'lucide-react';
@@ -8,6 +8,7 @@ import { Globe, Phone, Menu } from 'lucide-react';
 const Navbar = () => {
   const { language, setLanguage, translations } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const location = useLocation();
 
   // Helper function to safely extract string values from translations
   const getTranslation = (key: string, defaultValue: string): string => {
@@ -24,6 +25,18 @@ const Navbar = () => {
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
+
+  // Function to check if the link is active
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(path);
+  };
+
+  // Active link style
+  const activeLinkClass = "text-hospital-primary font-semibold border-b-2 border-hospital-primary";
+  const normalLinkClass = "text-hospital-text hover:text-hospital-primary transition-colors";
 
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-sm">
@@ -60,22 +73,22 @@ const Navbar = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link to="/" className="text-hospital-text hover:text-hospital-primary transition-colors">
+            <Link to="/" className={isActive('/') ? activeLinkClass : normalLinkClass}>
               {getTranslation('home', 'Home')}
             </Link>
-            <Link to="/about" className="text-hospital-text hover:text-hospital-primary transition-colors">
+            <Link to="/about" className={isActive('/about') ? activeLinkClass : normalLinkClass}>
               {getTranslation('about', 'About Us')}
             </Link>
-            <Link to="/services" className="text-hospital-text hover:text-hospital-primary transition-colors">
+            <Link to="/services" className={isActive('/services') ? activeLinkClass : normalLinkClass}>
               {getTranslation('services', 'Our Services')}
             </Link>
-            <Link to="/appointment" className="text-hospital-text hover:text-hospital-primary transition-colors">
+            <Link to="/appointment" className={isActive('/appointment') ? activeLinkClass : normalLinkClass}>
               {getTranslation('appointment', 'Book Appointment')}
             </Link>
-            <Link to="/pharmacy" className="text-hospital-text hover:text-hospital-primary transition-colors">
+            <Link to="/pharmacy" className={isActive('/pharmacy') ? activeLinkClass : normalLinkClass}>
               {getTranslation('pharmacy', 'Pharmacy')}
             </Link>
-            <Link to="/contact" className="text-hospital-text hover:text-hospital-primary transition-colors">
+            <Link to="/contact" className={isActive('/contact') ? activeLinkClass : normalLinkClass}>
               {getTranslation('contact', 'Contact')}
             </Link>
             
@@ -95,22 +108,58 @@ const Navbar = () => {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t py-4">
             <div className="flex flex-col space-y-3 px-4">
-              <Link to="/" className="text-hospital-text hover:text-hospital-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+              <Link 
+                to="/" 
+                className={isActive('/') 
+                  ? "text-hospital-primary font-semibold" 
+                  : "text-hospital-text hover:text-hospital-primary transition-colors"} 
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 {getTranslation('home', 'Home')}
               </Link>
-              <Link to="/about" className="text-hospital-text hover:text-hospital-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+              <Link 
+                to="/about" 
+                className={isActive('/about') 
+                  ? "text-hospital-primary font-semibold" 
+                  : "text-hospital-text hover:text-hospital-primary transition-colors"} 
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 {getTranslation('about', 'About Us')}
               </Link>
-              <Link to="/services" className="text-hospital-text hover:text-hospital-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+              <Link 
+                to="/services" 
+                className={isActive('/services') 
+                  ? "text-hospital-primary font-semibold" 
+                  : "text-hospital-text hover:text-hospital-primary transition-colors"} 
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 {getTranslation('services', 'Our Services')}
               </Link>
-              <Link to="/appointment" className="text-hospital-text hover:text-hospital-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+              <Link 
+                to="/appointment" 
+                className={isActive('/appointment') 
+                  ? "text-hospital-primary font-semibold" 
+                  : "text-hospital-text hover:text-hospital-primary transition-colors"} 
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 {getTranslation('appointment', 'Book Appointment')}
               </Link>
-              <Link to="/pharmacy" className="text-hospital-text hover:text-hospital-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+              <Link 
+                to="/pharmacy" 
+                className={isActive('/pharmacy') 
+                  ? "text-hospital-primary font-semibold" 
+                  : "text-hospital-text hover:text-hospital-primary transition-colors"} 
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 {getTranslation('pharmacy', 'Pharmacy')}
               </Link>
-              <Link to="/contact" className="text-hospital-text hover:text-hospital-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+              <Link 
+                to="/contact" 
+                className={isActive('/contact') 
+                  ? "text-hospital-primary font-semibold" 
+                  : "text-hospital-text hover:text-hospital-primary transition-colors"} 
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 {getTranslation('contact', 'Contact')}
               </Link>
               

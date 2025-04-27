@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Phone, MessageCircle, MapPin } from 'lucide-react';
+import { Phone, MessageCircle, MapPin, Calendar } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Footer from '@/components/Footer';
 
@@ -49,25 +50,39 @@ const Appointment = () => {
           </div>
         </section>
 
-        {/* Payment Section */}
-        <section className="py-12 bg-white">
+        {/* Appointment Section (Similar to Homepage) */}
+        <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <div className="text-center">
-              <h2 className="text-2xl font-bold text-hospital-primary mb-4">
-                {getTranslation('appointment.payment.title', 'Scan and Pay Consultation Fees')}
-              </h2>
-              <img
-                src="/qr-code.png"
-                alt="QR Code"
-                className="mx-auto mb-4 rounded-lg shadow-md"
-                style={{ maxWidth: '300px' }}
-              />
-              <p className="text-gray-600 mb-6">
-                {getTranslation('appointment.payment.instructions', 'After payment, please take a screenshot and click on "Book Appointment".')}
-              </p>
-              <p className="text-sm text-gray-500">
-                {getTranslation('appointment.payment.walkIn', 'Walk-in and appointment through call are also available.')}
-              </p>
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <div className="w-full md:w-1/2">
+                <img 
+                  src="/qr-code.jpg" 
+                  alt="Payment QR Code" 
+                  className="rounded-lg shadow-md w-full max-w-md mx-auto"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://placehold.co/400x400?text=UPI+QR+Code';
+                  }}
+                />
+              </div>
+              
+              <div className="w-full md:w-1/2 text-center md:text-left">
+                <h2 className="text-3xl font-bold text-gray-800 mb-4">Book an Appointment</h2>
+                <p className="text-gray-600 mb-6">
+                  Schedule your appointment with our specialists today. Quick and easy booking process 
+                  to save your valuable time.
+                </p>
+                
+                <a href="https://forms.gle/61B9jdr785XrSh2D7" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="gap-2">
+                    <Calendar className="h-5 w-5" />
+                    Book Appointment
+                  </Button>
+                </a>
+                
+                <p className="mt-4 text-sm text-gray-500">
+                  Quick and Easy Booking! Scan the QR code for payment after confirmation.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -78,15 +93,6 @@ const Appointment = () => {
             <p className="text-red-600 font-semibold">
               {getTranslation('appointment.urgent.text', 'For urgent consultation, please call us directly.')}
             </p>
-          </div>
-        </section>
-
-        {/* Book Appointment Button */}
-        <section className="py-12 bg-white">
-          <div className="container mx-auto px-4 text-center">
-            <Button className="bg-hospital-primary hover:bg-hospital-primary/90">
-              {getTranslation('appointment.book.button', 'Book Appointment')}
-            </Button>
           </div>
         </section>
 
