@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -180,10 +179,11 @@ const Navbar = () => {
         )}
       </div>
       
-      {/* Floating Call Now Button */}
+      {/* Update the floating Call Now Button positioning */}
       <a
         href="tel:9534800801"
-        className="fixed bottom-6 right-6 bg-hospital-accent text-white rounded-full p-3 shadow-lg hover:bg-hospital-accent/90 transition-colors"
+        className="fixed bottom-6 right-6 z-50 bg-hospital-accent text-white rounded-full p-3 shadow-lg hover:bg-hospital-accent/90 transition-colors sm:bottom-8 sm:right-8"
+        style={{ maxWidth: 'calc(100% - 2rem)' }}
       >
         <Phone className="h-6 w-6" />
       </a>

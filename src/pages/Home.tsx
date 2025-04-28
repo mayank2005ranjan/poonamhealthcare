@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import HeroSection from '@/components/home/HeroSection';
 import AboutPreview from '@/components/home/AboutPreview';
@@ -16,6 +16,10 @@ import Footer from '@/components/Footer';
 
 const Home = () => {
   const { language } = useLanguage();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
