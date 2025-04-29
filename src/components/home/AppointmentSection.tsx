@@ -11,12 +11,9 @@ const AppointmentSection = () => {
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="w-full md:w-1/2">
             <img 
-              src="/qr-code.jpg" 
-              alt="Payment QR Code" 
+              src="/lovable-uploads/93057098-c3be-416c-b455-d9494ddb51d9.png" 
+              alt="UPI Payment QR Code" 
               className="rounded-lg shadow-md w-full max-w-md mx-auto"
-              onError={(e) => {
-                e.currentTarget.src = 'https://placehold.co/400x400?text=UPI+QR+Code';
-              }}
             />
           </div>
           
