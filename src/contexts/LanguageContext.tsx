@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState } from 'react';
 
 type Language = 'en' | 'hi';
@@ -39,25 +38,9 @@ const translations = {
     en: 'Pharmacy',
     hi: 'फार्मेसी',
   },
-  team: {
-    en: 'Our Team',
-    hi: 'हमारी टीम',
-  },
   contact: {
     en: 'Contact',
     hi: 'संपर्क करें',
-  },
-  meetOurDoctors: {
-    en: 'Meet Our Doctors',
-    hi: 'हमारे डॉक्टरों से मिलें',
-  },
-  doctorsTagline: {
-    en: 'Experienced specialists dedicated to your health and care.',
-    hi: 'आपके स्वास्थ्य और देखभाल के लिए समर्पित अनुभवी विशेषज्ञ।',
-  },
-  viewAllDoctors: {
-    en: 'View All Doctors',
-    hi: 'सभी डॉक्टरों को देखें',
   },
   welcomeMessage: {
     en: 'Providing Quality Healthcare Services',
@@ -110,16 +93,16 @@ const translations = {
     hi: 'स्वास्थ्य और कल्याण में आपका विश्वसनीय साथी।',
   },
   weekdays: {
-    en: 'Monday to Sunday',
-    hi: 'सोमवार से रविवार',
+    en: 'Monday - Saturday',
+    hi: 'सोमवार - शनिवार',
   },
   hours: {
-    en: '24hrs',
-    hi: '24 घंटे',
+    en: '9:00 AM - 8:00 PM',
+    hi: 'सुबह 9:00 बजे - शाम 8:00 बजे',
   },
   openingHours: {
-    en: '24hrs',
-    hi: '24 घंटे',
+    en: '24/7',
+    hi: '24/7',
   },
   emergency: {
     en: 'Emergency: 24/7',
@@ -150,156 +133,30 @@ const translations = {
     hi: 'हमारी सेवाओं और कार्यक्रमों के बारे में जानकारी प्राप्त करें',
   },
   updates: {
-    website: {
-      en: "Now Online! Poonam Health Care is now live online — explore our services, book appointments, and order medicines at: poonamhealthcare.vercel.app",
-      hi: "अब ऑनलाइन! पूनम हेल्थ केयर अब ऑनलाइन उपलब्ध है - हमारी सेवाओं का अन्वेषण करें, अपॉइंटमेंट बुक करें और दवाएं ऑर्डर करें: poonamhealthcare.vercel.app"
+    eyeCamp: {
+      en: 'Free Eye Camp on 5th May!',
+      hi: '5 मई को निःशुल्क आंख शिविर!',
     },
-    websiteDate: {
-      en: "April 29, 2025",
-      hi: "29 अप्रैल, 2025",
+    eyeCampDate: {
+      en: 'April 20, 2025',
+      hi: '20 अप्रैल, 2025',
     },
-    eyeCare: {
-      en: "World-Class Eye Care Now Available - We now offer expert eye consultations and advanced treatments from experienced specialists. Your vision is in safe hands!",
-      hi: "अब विश्व स्तरीय नेत्र देखभाल उपलब्ध - हम अब अनुभवी विशेषज्ञों से विशेषज्ञ नेत्र परामर्श और उन्नत उपचार प्रदान करते हैं। आपकी दृष्टि सुरक्षित हाथों में है!"
+    diabetes: {
+      en: 'New Diabetes Specialist Available',
+      hi: 'नए मधुमेह विशेषज्ञ उपलब्ध',
     },
-    eyeCareDate: {
-      en: "April 29, 2025",
-      hi: "29 अप्रैल, 2025",
+    diabetesDate: {
+      en: 'April 15, 2025',
+      hi: '15 अप्रैल, 2025',
     },
-    bloodTest: {
-      en: "Blood Test Facility Launched - Get hassle-free blood collection at your home for routine and special tests. Book now and stay ahead of your health.",
-      hi: "रक्त परीक्षण सुविधा शुरू की गई - नियमित और विशेष परीक्षणों के लिए अपने घर पर परेशानी मुक्त रक्त संग्रह प्राप्त करें। अभी बुक करें और अपने स्वास्थ्य से आगे रहें।"
+    blood: {
+      en: 'Emergency Blood Collection Service started',
+      hi: 'आपातकालीन रक्त संग्रह सेवा शुरू की गई',
     },
-    bloodTestDate: {
-      en: "April 29, 2025",
-      hi: "29 अप्रैल, 2025",
+    bloodDate: {
+      en: 'April 10, 2025',
+      hi: '10 अप्रैल, 2025',
     },
-  },
-  // Doctor information
-  doctors: {
-    generalPhysician: {
-      en: "General Physician",
-      hi: "सामान्य चिकित्सक"
-    },
-    gynaecologist: {
-      en: "Gynaecologist & Anaesthesiologist",
-      hi: "स्त्री रोग विशेषज्ञ और एनेस्थीसियोलॉजिस्ट"
-    },
-    eyeSpecialist: {
-      en: "Eye Specialist",
-      hi: "नेत्र विशेषज्ञ"
-    },
-    rrcBio: {
-      en: "Heart, lung, stomach and diabetes specialist",
-      hi: "हृदय, फेफड़े, पेट और मधुमेह विशेषज्ञ"
-    },
-    krcBio: {
-      en: "Expert in women's healthcare and maternal wellness",
-      hi: "महिलाओं के स्वास्थ्य और मातृत्व कल्याण में विशेषज्ञ"
-    },
-    mmBio: {
-      en: "Specialist in comprehensive eye care and treatments",
-      hi: "व्यापक नेत्र देखभाल और उपचार में विशेषज्ञ"
-    }
-  },
-  // Team page translations
-  teamPage: {
-    hero: {
-      title: {
-        en: "Meet Our Team",
-        hi: "हमारी टीम से मिलें"
-      },
-      subtitle: {
-        en: "The strength of our care lies in the hands of our dedicated experts",
-        hi: "हमारी देखभाल की ताकत हमारे समर्पित विशेषज्ञों के हाथों में है"
-      }
-    },
-    doctors: {
-      title: {
-        en: "Doctors & Specialists",
-        hi: "डॉक्टर और विशेषज्ञ"
-      }
-    },
-    bookAppointment: {
-      en: "Book Appointment",
-      hi: "अपॉइंटमेंट बुक करें"
-    },
-    nursingStaff: {
-      title: {
-        en: "Nursing & Support Staff",
-        hi: "नर्सिंग और सहायक कर्मचारी"
-      }
-    },
-    groupBanner: {
-      title: {
-        en: "Together, We Care",
-        hi: "एक साथ, हम देखभाल करते हैं"
-      },
-      description: {
-        en: "Our team of professionals work together to provide the best care for you and your family.",
-        hi: "हमारे पेशेवरों की टीम आपके और आपके परिवार के लिए सर्वोत्तम देखभाल प्रदान करने के लिए एक साथ काम करती है।"
-      }
-    },
-    cta: {
-      title: {
-        en: "Need Expert Care?",
-        hi: "विशेषज्ञ देखभाल की आवश्यकता है?"
-      },
-      subtitle: {
-        en: "Meet our trusted doctors and book your consultation today!",
-        hi: "हमारे विश्वसनीय डॉक्टरों से मिलें और आज ही अपना परामर्श बुक करें!"
-      },
-      button: {
-        en: "Book Appointment",
-        hi: "अपॉइंटमेंट बुक करें"
-      }
-    }
-  },
-  // Staff translations
-  staff: {
-    headNurse: {
-      en: "Head Nurse",
-      hi: "हेड नर्स"
-    },
-    pharmacist: {
-      en: "Pharmacist",
-      hi: "फार्मासिस्ट"
-    },
-    labTechnician: {
-      en: "Lab Technician",
-      hi: "लैब तकनीशियन"
-    },
-    receptionist: {
-      en: "Receptionist",
-      hi: "रिसेप्शनिस्ट"
-    },
-    sunitaQuote: {
-      en: "Compassionate care, every patient, every time",
-      hi: "करुणामय देखभाल, हर मरीज, हर बार"
-    },
-    rajeshQuote: {
-      en: "Right medicine, right time, right care",
-      hi: "सही दवा, सही समय, सही देखभाल"
-    },
-    renuQuote: {
-      en: "Accurate tests for accurate diagnosis",
-      hi: "सटीक निदान के लिए सटीक परीक्षण"
-    },
-    mohanQuote: {
-      en: "Your first smile when you walk in",
-      hi: "जब आप अंदर आते हैं तो आपकी पहली मुस्कान"
-    }
-  },
-  // About Us Hero Banner
-  aboutUsHero: {
-    title: {
-      en: "About Poonam Health Care",
-      hi: "पूनम हेल्थ केयर के बारे में"
-    },
-    subtitle: {
-      en: "Your Health, Our Priority Since Day One",
-      hi: "आपका स्वास्थ्य, पहले दिन से हमारी प्राथमिकता"
-    }
   },
   // About Us Page Translations
   aboutUs: {
@@ -582,42 +439,6 @@ const translations = {
         hi: 'अभी बुक करें'
       }
     },
-    appointmentProcess: {
-      title: {
-        en: 'Appointment Process',
-        hi: 'अपॉइंटमेंट प्रक्रिया'
-      },
-      step1: {
-        title: {
-          en: 'Scan & Pay',
-          hi: 'स्कैन करें और भुगतान करें'
-        },
-        description: {
-          en: 'Scan our UPI QR code and complete the consultation fee payment.',
-          hi: 'हमारे UPI QR कोड को स्कैन करें और परामर्श शुल्क का भुगतान पूरा करें।'
-        }
-      },
-      step2: {
-        title: {
-          en: 'Save Payment Proof',
-          hi: 'भुगतान प्रमाण सहेजें'
-        },
-        description: {
-          en: 'Take a screenshot of the successful payment.',
-          hi: 'सफल भुगतान का स्क्रीनशॉट लें।'
-        }
-      },
-      step3: {
-        title: {
-          en: 'Book Your Appointment',
-          hi: 'अपनी अपॉइंटमेंट बुक करें'
-        },
-        description: {
-          en: 'Click the "Book Appointment" and fill out the form.',
-          hi: '"अपॉइंटमेंट बुक करें" पर क्लिक करें और फॉर्म भरें।'
-        }
-      }
-    },
     faq: {
       title: {
         en: 'Frequently Asked Questions',
@@ -681,42 +502,6 @@ const translations = {
       walkIn: {
         en: 'Walk-in and appointment through call are also available.',
         hi: 'वॉक-इन और कॉल के माध्यम से अपॉइंटमेंट भी उपलब्ध हैं।'
-      }
-    },
-    appointmentProcess: {
-      title: {
-        en: 'Appointment Process',
-        hi: 'अपॉइंटमेंट प्रक्रिया'
-      },
-      step1: {
-        title: {
-          en: 'Scan & Pay',
-          hi: 'स्कैन करें और भुगतान करें'
-        },
-        description: {
-          en: 'Scan our UPI QR code and complete the consultation fee payment.',
-          hi: 'हमारे UPI QR कोड को स्कैन करें और परामर्श शुल्क का भुगतान पूरा करें।'
-        }
-      },
-      step2: {
-        title: {
-          en: 'Save Payment Proof',
-          hi: 'भुगतान प्रमाण सहेजें'
-        },
-        description: {
-          en: 'Take a screenshot of the successful payment.',
-          hi: 'सफल भुगतान का स्क्रीनशॉट लें।'
-        }
-      },
-      step3: {
-        title: {
-          en: 'Book Your Appointment',
-          hi: 'अपनी अपॉइंटमेंट बुक करें'
-        },
-        description: {
-          en: 'Click the "Book Appointment" and fill out the form.',
-          hi: '"अपॉइंटमेंट बुक करें" पर क्लिक करें और फॉर्म भरें।'
-        }
       }
     },
     urgent: {

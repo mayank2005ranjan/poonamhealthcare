@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -44,16 +43,19 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-3">
             {/* Logo */}
-            <div className="h-10">
+            <div className="h-10 w-10">
               <img 
-                src="/lovable-uploads/2e3590e9-797b-4ef5-a9c4-e93b33bd896d.png" 
-                alt="Poonam Health Care Logo" 
-                className="h-full object-contain"
+                src="/logo.png" 
+                alt="PHC Logo" 
+                className="h-full w-full object-contain"
                 onError={(e) => {
                   e.currentTarget.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="%230B2C5F" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v2"></path><path d="M16 3v2"></path><path d="M4 11h16"></path><path d="M11 15h1"></path><path d="M12 15v3"></path><rect x="3" y="5" width="18" height="16" rx="2"></rect></svg>';
                 }}
               />
             </div>
+            <span className="text-xl font-bold text-hospital-primary">
+              Poonam Health Care
+            </span>
           </Link>
           
           {/* Mobile menu button */}
@@ -84,9 +86,6 @@ const Navbar = () => {
             </Link>
             <Link to="/pharmacy" className={isActive('/pharmacy') ? activeLinkClass : normalLinkClass}>
               {getTranslation('pharmacy', 'Pharmacy')}
-            </Link>
-            <Link to="/team" className={isActive('/team') ? activeLinkClass : normalLinkClass}>
-              {getTranslation('team', 'Our Team')}
             </Link>
             <Link to="/contact" className={isActive('/contact') ? activeLinkClass : normalLinkClass}>
               {getTranslation('contact', 'Contact')}
@@ -154,15 +153,6 @@ const Navbar = () => {
                 {getTranslation('pharmacy', 'Pharmacy')}
               </Link>
               <Link 
-                to="/team" 
-                className={isActive('/team') 
-                  ? "text-hospital-primary font-semibold" 
-                  : "text-hospital-text hover:text-hospital-primary transition-colors"} 
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {getTranslation('team', 'Our Team')}
-              </Link>
-              <Link 
                 to="/contact" 
                 className={isActive('/contact') 
                   ? "text-hospital-primary font-semibold" 
@@ -189,10 +179,11 @@ const Navbar = () => {
         )}
       </div>
       
-      {/* Update the floating Call Now Button positioning for better mobile alignment */}
+      {/* Update the floating Call Now Button positioning */}
       <a
         href="tel:9534800801"
-        className="fixed bottom-6 right-6 z-50 bg-hospital-accent text-white rounded-full p-3 shadow-lg hover:bg-hospital-accent/90 transition-colors sm:bottom-8 sm:right-8 max-w-[calc(100%-1.5rem)]"
+        className="fixed bottom-6 right-6 z-50 bg-hospital-accent text-white rounded-full p-3 shadow-lg hover:bg-hospital-accent/90 transition-colors sm:bottom-8 sm:right-8"
+        style={{ maxWidth: 'calc(100% - 2rem)' }}
       >
         <Phone className="h-6 w-6" />
       </a>

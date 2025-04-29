@@ -59,9 +59,6 @@ const Footer = () => {
               <Link to="/pharmacy" className="block text-gray-300 hover:text-white">
                 {getTranslation('pharmacy', 'Pharmacy')}
               </Link>
-              <Link to="/team" className="block text-gray-300 hover:text-white">
-                {getTranslation('team', 'Our Team')}
-              </Link>
               <Link to="/contact" className="block text-gray-300 hover:text-white">
                 {getTranslation('contact', 'Contact')}
               </Link>
@@ -91,8 +88,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">{getTranslation('footer.openingHours', 'Opening Hours')}</h4>
             <div className="space-y-2 text-gray-300">
-              <p>{getTranslation('weekdays', 'Monday to Sunday')}</p>
-              <p>{getTranslation('openingHours', '24hrs')}</p>
+              <p>{getTranslation('openingHours', '24/7')}</p>
               <p className="text-hospital-accent">{getTranslation('emergency', 'Emergency: 24/7')}</p>
             </div>
           </div>
