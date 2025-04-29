@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Stethoscope, Pill, FirstAid, Heart, Link } from 'lucide-react';
+import { Stethoscope, Pill, MedicalKit, Heart, Link } from 'lucide-react';
 import Footer from '@/components/Footer';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link as RouterLink } from 'react-router-dom';
@@ -46,7 +46,7 @@ const Services = () => {
       description: getTranslation('servicesPage.pharmacy.description', 'Order medicines from our in-house pharmacy with free delivery under 3 kms.')
     },
     {
-      icon: <FirstAid className="h-12 w-12 text-hospital-primary" />,
+      icon: <MedicalKit className="h-12 w-12 text-hospital-primary" />,
       title: getTranslation('servicesPage.eyeSpecialist.title', 'Eye Specialist Appointments'),
       description: getTranslation('servicesPage.eyeSpecialist.description', 'Comprehensive eye checkups, surgeries, and treatment from experienced specialists.')
     },
@@ -61,7 +61,7 @@ const Services = () => {
       description: getTranslation('servicesPage.diabetologist.description', 'Manage and control diabetes with personalized plans and guidance.')
     },
     {
-      icon: <FirstAid className="h-12 w-12 text-hospital-primary" />,
+      icon: <MedicalKit className="h-12 w-12 text-hospital-primary" />,
       title: getTranslation('servicesPage.generalPhysician.title', 'General Physician Visits'),
       description: getTranslation('servicesPage.generalPhysician.description', 'From fever to infections, trusted care for everyday health issues.')
     },
@@ -162,7 +162,7 @@ const Services = () => {
               
               <div className="bg-white p-6 rounded-lg shadow text-center">
                 <div className="bg-hospital-secondary/20 h-16 w-16 rounded-full mx-auto flex items-center justify-center mb-4">
-                  <FirstAid className="h-8 w-8 text-hospital-primary" />
+                  <MedicalKit className="h-8 w-8 text-hospital-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-hospital-primary mb-2">
                   {getTranslation('servicesPage.whyChoose.delivery', 'Free Medicine Delivery')}
