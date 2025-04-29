@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Bell, Pill, Ambulance } from 'lucide-react';
+import { Bell, Pill, Droplet, Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Update {
@@ -25,21 +25,21 @@ const UpdatesSection = () => {
   const updates: Update[] = [
     {
       id: 1,
-      title: getTranslation('updates.eyeCamp', "Free Eye Camp on 5th May!"),
-      date: getTranslation('updates.eyeCampDate', "April 20, 2025"),
-      icon: <Bell className="h-5 w-5 text-hospital-primary" />
+      title: getTranslation('updates.website', "Now Online! Poonam Health Care is now live online — explore our services, book appointments, and order medicines at: poonamhealthcare.vercel.app"),
+      date: getTranslation('updates.websiteDate', "April 29, 2025"),
+      icon: <Globe className="h-5 w-5 text-blue-500" />
     },
     {
       id: 2,
-      title: getTranslation('updates.diabetes', "New Diabetes Specialist Available"),
-      date: getTranslation('updates.diabetesDate', "April 15, 2025"),
-      icon: <Pill className="h-5 w-5 text-hospital-accent" />
+      title: getTranslation('updates.eyeCare', "World-Class Eye Care Now Available - We now offer expert eye consultations and advanced treatments from experienced specialists. Your vision is in safe hands!"),
+      date: getTranslation('updates.eyeCareDate', "April 29, 2025"),
+      icon: <Bell className="h-5 w-5 text-hospital-primary" />
     },
     {
       id: 3,
-      title: getTranslation('updates.blood', "Emergency Blood Collection Service started"),
-      date: getTranslation('updates.bloodDate', "April 10, 2025"),
-      icon: <Ambulance className="h-5 w-5 text-red-500" />
+      title: getTranslation('updates.bloodTest', "Blood Test Facility Launched - Get hassle-free blood collection at your home for routine and special tests. Book now and stay ahead of your health."),
+      date: getTranslation('updates.bloodTestDate', "April 29, 2025"),
+      icon: <Droplet className="h-5 w-5 text-red-500" />
     }
   ];
 
@@ -67,8 +67,6 @@ const UpdatesSection = () => {
             </div>
           ))}
         </div>
-        
-        {/* View All Updates button removed as requested */}
       </div>
     </section>
   );

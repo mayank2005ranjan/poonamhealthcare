@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Check, Users, ArrowRight } from 'lucide-react';
@@ -9,6 +9,11 @@ import { Link } from 'react-router-dom';
 
 const AboutUs = () => {
   const { language, translations } = useLanguage();
+  
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   // Helper function to safely extract string values from translations
   const getTranslation = (key: string, defaultValue: string): string => {
@@ -33,6 +38,18 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen bg-white">
       <main>
+        {/* Hero Banner Section */}
+        <section className="py-16 bg-gradient-to-r from-blue-50 to-white">
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-hospital-primary mb-4">
+              {getTranslation('aboutUsHero.title', 'About Poonam Health Care')}
+            </h1>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              {getTranslation('aboutUsHero.subtitle', 'Your Health, Our Priority Since Day One')}
+            </p>
+          </div>
+        </section>
+      
         {/* Our Story Section */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
@@ -240,9 +257,11 @@ const AboutUs = () => {
               {getTranslation('aboutUs.team.description', 'Behind every great hospital is a great team.')}
             </p>
             
-            <Button variant="default" size="lg" className="bg-hospital-primary hover:bg-hospital-primary/90">
-              {getTranslation('aboutUs.team.viewButton', 'View Our Team')}
-            </Button>
+            <Link to="/team">
+              <Button variant="default" size="lg" className="bg-hospital-primary hover:bg-hospital-primary/90">
+                {getTranslation('aboutUs.team.viewButton', 'View Our Team')}
+              </Button>
+            </Link>
           </div>
         </section>
         
