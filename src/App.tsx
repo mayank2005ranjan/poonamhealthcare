@@ -18,6 +18,7 @@ import TermsConditions from "./pages/TermsConditions";
 import Disclaimer from "./pages/Disclaimer";
 import RefundPolicy from "./pages/RefundPolicy";
 import PatientRights from "./pages/PatientRights";
+import TeamPage from "./pages/TeamPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const App = () => {
                 <Route path="/appointment" element={<Appointment />} />
                 <Route path="/pharmacy" element={<Pharmacy />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/team" element={<TeamPage />} />
                 
                 {/* Policy Pages */}
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />

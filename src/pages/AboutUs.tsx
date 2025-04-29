@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Check, Users, ArrowRight } from 'lucide-react';
@@ -9,6 +9,10 @@ import { Link } from 'react-router-dom';
 
 const AboutUs = () => {
   const { language, translations } = useLanguage();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   // Helper function to safely extract string values from translations
   const getTranslation = (key: string, defaultValue: string): string => {
@@ -33,8 +37,20 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen bg-white">
       <main>
+        {/* Hero Banner */}
+        <section className="bg-hospital-secondary/20 py-20">
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-hospital-primary mb-4">
+              {getTranslation('aboutUs.hero.title', 'About Poonam Health Care')}
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {getTranslation('aboutUs.hero.subtitle', 'Your Health, Our Priority Since Day One')}
+            </p>
+          </div>
+        </section>
+        
         {/* Our Story Section */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-hospital-primary mb-8 text-center">
               {getTranslation('aboutUs.ourStory.title', 'Our Story')}
@@ -81,7 +97,7 @@ const AboutUs = () => {
         </section>
         
         {/* Our Values Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <h3 className="text-2xl font-bold text-hospital-primary mb-8 text-center">
               {getTranslation('aboutUs.ourStory.values.title', 'Our Values')}
@@ -240,9 +256,11 @@ const AboutUs = () => {
               {getTranslation('aboutUs.team.description', 'Behind every great hospital is a great team.')}
             </p>
             
-            <Button variant="default" size="lg" className="bg-hospital-primary hover:bg-hospital-primary/90">
-              {getTranslation('aboutUs.team.viewButton', 'View Our Team')}
-            </Button>
+            <Link to="/team">
+              <Button variant="default" size="lg" className="bg-hospital-primary hover:bg-hospital-primary/90">
+                {getTranslation('aboutUs.team.viewButton', 'View Our Team')}
+              </Button>
+            </Link>
           </div>
         </section>
         

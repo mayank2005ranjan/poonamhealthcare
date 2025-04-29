@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -41,21 +42,18 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center space-x-3">
-            {/* Logo */}
-            <div className="h-10 w-10">
+          <Link to="/" className="flex items-center">
+            {/* Updated logo */}
+            <div className="h-14 w-auto">
               <img 
-                src="/logo.png" 
+                src="/lovable-uploads/c3836e98-145b-498f-a400-1b54927d83c4.png" 
                 alt="PHC Logo" 
-                className="h-full w-full object-contain"
+                className="h-full w-auto object-contain"
                 onError={(e) => {
                   e.currentTarget.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="%230B2C5F" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v2"></path><path d="M16 3v2"></path><path d="M4 11h16"></path><path d="M11 15h1"></path><path d="M12 15v3"></path><rect x="3" y="5" width="18" height="16" rx="2"></rect></svg>';
                 }}
               />
             </div>
-            <span className="text-xl font-bold text-hospital-primary">
-              Poonam Health Care
-            </span>
           </Link>
           
           {/* Mobile menu button */}

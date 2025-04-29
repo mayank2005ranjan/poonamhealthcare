@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState } from 'react';
 
 type Language = 'en' | 'hi';
@@ -41,6 +42,10 @@ const translations = {
   contact: {
     en: 'Contact',
     hi: 'संपर्क करें',
+  },
+  team: {
+    en: 'Our Team',
+    hi: 'हमारी टीम',
   },
   welcomeMessage: {
     en: 'Providing Quality Healthcare Services',
@@ -93,24 +98,44 @@ const translations = {
     hi: 'स्वास्थ्य और कल्याण में आपका विश्वसनीय साथी।',
   },
   weekdays: {
-    en: 'Monday - Saturday',
-    hi: 'सोमवार - शनिवार',
+    en: 'Monday to Sunday',
+    hi: 'सोमवार से रविवार',
   },
   hours: {
-    en: '9:00 AM - 8:00 PM',
-    hi: 'सुबह 9:00 बजे - शाम 8:00 बजे',
+    en: '24hrs',
+    hi: '24 घंटे',
   },
   openingHours: {
-    en: '24/7',
-    hi: '24/7',
+    en: '24hrs',
+    hi: '24 घंटे',
   },
   emergency: {
     en: 'Emergency: 24/7',
     hi: 'आपातकालीन: 24/7',
   },
   rightsReserved: {
-    en: 'All rights reserved.',
+    en: 'All Rights Reserved.',
     hi: 'सर्वाधिकार सुरक्षित।',
+  },
+  privacyPolicy: {
+    en: 'Privacy Policy',
+    hi: 'गोपनीयता नीति',
+  },
+  termsConditions: {
+    en: 'Terms & Conditions',
+    hi: 'नियम और शर्तें',
+  },
+  disclaimer: {
+    en: 'Disclaimer',
+    hi: 'अस्वीकरण',
+  },
+  refundPolicy: {
+    en: 'Refund & Cancellation Policy',
+    hi: 'रिफंड और रद्दीकरण नीति',
+  },
+  patientRights: {
+    en: 'Patient Rights & Responsibilities',
+    hi: 'रोगी के अधिकार और जिम्मेदारियां',
   },
   findUs: {
     en: 'Find Us',
@@ -133,33 +158,235 @@ const translations = {
     hi: 'हमारी सेवाओं और कार्यक्रमों के बारे में जानकारी प्राप्त करें',
   },
   updates: {
-    eyeCamp: {
-      en: 'Free Eye Camp on 5th May!',
-      hi: '5 मई को निःशुल्क आंख शिविर!',
+    nowOnline: {
+      en: 'Now Online!',
+      hi: 'अब ऑनलाइन!',
     },
-    eyeCampDate: {
-      en: 'April 20, 2025',
-      hi: '20 अप्रैल, 2025',
+    nowOnlineDate: {
+      en: 'April 29, 2025',
+      hi: '29 अप्रैल, 2025',
     },
-    diabetes: {
-      en: 'New Diabetes Specialist Available',
-      hi: 'नए मधुमेह विशेषज्ञ उपलब्ध',
+    nowOnlineDesc: {
+      en: 'Poonam Health Care is now live online — explore our services, book appointments, and order medicines at: poonamhealthcare.vercel.app',
+      hi: 'पूनम हेल्थ केयर अब ऑनलाइन हो गया है — poonamhealthcare.vercel.app पर हमारी सेवाओं का पता लगाएं, अपॉइंटमेंट बुक करें और दवाएं ऑर्डर करें',
     },
-    diabetesDate: {
-      en: 'April 15, 2025',
-      hi: '15 अप्रैल, 2025',
+    eyeCare: {
+      en: 'World-Class Eye Care Now Available',
+      hi: 'विश्व स्तरीय नेत्र देखभाल अब उपलब्ध',
     },
-    blood: {
-      en: 'Emergency Blood Collection Service started',
-      hi: 'आपातकालीन रक्त संग्रह सेवा शुरू की गई',
+    eyeCareDate: {
+      en: 'April 29, 2025',
+      hi: '29 अप्रैल, 2025',
     },
-    bloodDate: {
-      en: 'April 10, 2025',
-      hi: '10 अप्रैल, 2025',
+    eyeCareDesc: {
+      en: 'We now offer expert eye consultations and advanced treatments from experienced specialists. Your vision is in safe hands!',
+      hi: 'हम अब अनुभवी विशेषज्ञों से विशेषज्ञ नेत्र परामर्श और उन्नत उपचार प्रदान करते हैं। आपकी दृष्टि सुरक्षित हाथों में है!',
+    },
+    bloodTest: {
+      en: 'Blood Test Facility Launched',
+      hi: 'रक्त परीक्षण सुविधा शुरू की गई',
+    },
+    bloodTestDate: {
+      en: 'April 29, 2025',
+      hi: '29 अप्रैल, 2025',
+    },
+    bloodTestDesc: {
+      en: 'Get hassle-free blood collection at your home for routine and special tests. Book now and stay ahead of your health.',
+      hi: 'नियमित और विशेष परीक्षणों के लिए अपने घर पर परेशानी मुक्त रक्त संग्रह प्राप्त करें। अभी बुक करें और अपने स्वास्थ्य से आगे रहें।',
+    },
+  },
+  // Doctor translations
+  doctors: {
+    rakesh: {
+      name: {
+        en: 'Dr. Rakesh Roshan Chaudhary',
+        hi: 'डॉ. राकेश रोशन चौधरी',
+      },
+      degree: {
+        en: 'MBBS (DMCH), D.T.M & H (Medicine) MD (General Physician)',
+        hi: 'एमबीबीएस (डीएमसीएच), डी.टी.एम एंड एच (मेडिसिन) एमडी (जनरल फिजिशियन)',
+      },
+      department: {
+        en: 'General Physician',
+        hi: 'जनरल फिजिशियन',
+      },
+      experience: {
+        en: '10+ years experience',
+        hi: '10+ वर्षों का अनुभव',
+      },
+      bio: {
+        en: 'Specialist in heart, lung, stomach and diabetes cases.',
+        hi: 'हृदय, फेफड़े, पेट और मधुमेह के मामलों के विशेषज्ञ।',
+      },
+    },
+    rashmi: {
+      name: {
+        en: 'Dr. Kumari Rashmi Chaudhary',
+        hi: 'डॉ. कुमारी रश्मि चौधरी',
+      },
+      degree: {
+        en: 'ΜΒΒS (ΑΝΜMC), MD (DMCH)',
+        hi: 'एमबीबीएस (एएनएमएमसी), एमडी (डीएमसीएच)',
+      },
+      department: {
+        en: 'Gynaecologist & Anaesthesiologist',
+        hi: 'स्त्री रोग विशेषज्ञ और एनेस्थिसियोलॉजिस्ट',
+      },
+      experience: {
+        en: '10+ years experience',
+        hi: '10+ वर्षों का अनुभव',
+      },
+      bio: {
+        en: "Expert in women's healthcare and maternal wellness.",
+        hi: 'महिला स्वास्थ्य सेवा और मातृ स्वास्थ्य में विशेषज्ञ।',
+      },
+    },
+    masihuzzaman: {
+      name: {
+        en: 'Dr. Md. Masihuzzaman',
+        hi: 'डॉ. मो. मसीहुज़्ज़मान',
+      },
+      degree: {
+        en: 'PhD, M.Ophtal, B.Ophthal. FOVT (USA)',
+        hi: 'पीएचडी, एम.ऑफ्थल, बी.ऑफ्थल. एफओवीटी (यूएसए)',
+      },
+      department: {
+        en: 'Eye Specialist',
+        hi: 'नेत्र विशेषज्ञ',
+      },
+      experience: {
+        en: '10+ years experience',
+        hi: '10+ वर्षों का अनुभव',
+      },
+      bio: {
+        en: 'Specialized in advanced eye care and treatments.',
+        hi: 'उन्नत नेत्र देखभाल और उपचार में विशेषज्ञ।',
+      },
+    },
+  },
+  // Staff translations
+  staff: {
+    nurse1: {
+      name: {
+        en: 'Anjali Kumari',
+        hi: 'अंजली कुमारी',
+      },
+      role: {
+        en: 'Senior Nurse',
+        hi: 'सीनियर नर्स',
+      },
+      quote: {
+        en: 'Always here to care for you',
+        hi: 'हमेशा आपकी देखभाल के लिए मौजूद',
+      },
+    },
+    nurse2: {
+      name: {
+        en: 'Ravi Kumar',
+        hi: 'रवि कुमार',
+      },
+      role: {
+        en: 'Pharmacy Assistant',
+        hi: 'फार्मेसी सहायक',
+      },
+      quote: {
+        en: 'Your health is our priority',
+        hi: 'आपका स्वास्थ्य हमारी प्राथमिकता है',
+      },
+    },
+    nurse3: {
+      name: {
+        en: 'Sunita Devi',
+        hi: 'सुनीता देवी',
+      },
+      role: {
+        en: 'Lab Technician',
+        hi: 'लैब तकनीशियन',
+      },
+      quote: {
+        en: 'Accurate diagnostics for better treatment',
+        hi: 'बेहतर उपचार के लिए सटीक निदान',
+      },
+    },
+    nurse4: {
+      name: {
+        en: 'Mukesh Singh',
+        hi: 'मुकेश सिंह',
+      },
+      role: {
+        en: 'Patient Coordinator',
+        hi: 'रोगी समन्वयक',
+      },
+      quote: {
+        en: 'Making your hospital visit seamless',
+        hi: 'आपकी अस्पताल यात्रा को सहज बनाना',
+      },
+    },
+  },
+  // Meet Our Doctors section translations
+  meetOurDoctors: {
+    en: 'Meet Our Doctors',
+    hi: 'हमारे डॉक्टरों से मिलें',
+  },
+  doctorsSubtitle: {
+    en: 'Experienced specialists dedicated to your health and care.',
+    hi: 'आपके स्वास्थ्य और देखभाल के लिए समर्पित अनुभवी विशेषज्ञ।',
+  },
+  viewAllDoctors: {
+    en: 'View All Doctors',
+    hi: 'सभी डॉक्टरों को देखें',
+  },
+  // Team Page translations
+  teamPage: {
+    title: {
+      en: 'Meet Our Team',
+      hi: 'हमारी टीम से मिलें',
+    },
+    subtitle: {
+      en: 'The strength of our care lies in the hands of our dedicated experts.',
+      hi: 'हमारी देखभाल की ताकत हमारे समर्पित विशेषज्ञों के हाथों में है।',
+    },
+    doctorsTitle: {
+      en: 'Doctors & Specialists',
+      hi: 'डॉक्टर और विशेषज्ञ',
+    },
+    staffTitle: {
+      en: 'Nursing & Support Staff',
+      hi: 'नर्सिंग और सहायक स्टाफ',
+    },
+    bookAppointment: {
+      en: 'Book Appointment',
+      hi: 'अपॉइंटमेंट बुक करें',
+    },
+    togetherTitle: {
+      en: 'Together, We Care',
+      hi: 'साथ मिलकर, हम देखभाल करते हैं',
+    },
+    togetherDesc: {
+      en: 'Our team is committed to providing you with the best healthcare experience.',
+      hi: 'हमारी टीम आपको सर्वोत्तम स्वास्थ्य देखभाल अनुभव प्रदान करने के लिए प्रतिबद्ध है।',
+    },
+    needCare: {
+      en: 'Need Expert Care?',
+      hi: 'विशेषज्ञ देखभाल की आवश्यकता है?',
+    },
+    meetDoctors: {
+      en: 'Meet our trusted doctors and book your consultation today!',
+      hi: 'हमारे विश्वसनीय डॉक्टरों से मिलें और आज ही अपना परामर्श बुक करें!',
     },
   },
   // About Us Page Translations
   aboutUs: {
+    hero: {
+      title: {
+        en: 'About Poonam Health Care',
+        hi: 'पूनम हेल्थ केयर के बारे में',
+      },
+      subtitle: {
+        en: 'Your Health, Our Priority Since Day One',
+        hi: 'आपका स्वास्थ्य, पहले दिन से हमारी प्राथमिकता',
+      },
+    },
     ourStory: {
       title: {
         en: 'Our Story',
@@ -439,6 +666,42 @@ const translations = {
         hi: 'अभी बुक करें'
       }
     },
+    appointmentProcess: {
+      title: {
+        en: 'Appointment Process',
+        hi: 'अपॉइंटमेंट प्रक्रिया',
+      },
+      step1: {
+        title: {
+          en: '1. Scan & Pay',
+          hi: '1. स्कैन करें और भुगतान करें',
+        },
+        description: {
+          en: 'Scan our UPI QR code and complete the consultation fee payment.',
+          hi: 'हमारे UPI QR कोड को स्कैन करें और परामर्श शुल्क का भुगतान पूरा करें।',
+        },
+      },
+      step2: {
+        title: {
+          en: '2. Save Payment Proof',
+          hi: '2. भुगतान का प्रमाण सहेजें',
+        },
+        description: {
+          en: 'Take a screenshot of the successful payment.',
+          hi: 'सफल भुगतान का स्क्रीनशॉट लें।',
+        },
+      },
+      step3: {
+        title: {
+          en: '3. Book Your Appointment',
+          hi: '3. अपनी अपॉइंटमेंट बुक करें',
+        },
+        description: {
+          en: 'Click the "Book Appointment" and fill out the form.',
+          hi: '"अपॉइंटमेंट बुक करें" पर क्लिक करें और फॉर्म भरें।',
+        },
+      },
+    },
     faq: {
       title: {
         en: 'Frequently Asked Questions',
@@ -479,7 +742,7 @@ const translations = {
     }
   },
   // Appointment Page Translations
-  appointmentPage: { // Renamed from 'appointment' to avoid conflicts
+  appointmentPage: {
     hero: {
       title: {
         en: 'Book Your Appointment',
@@ -503,6 +766,38 @@ const translations = {
         en: 'Walk-in and appointment through call are also available.',
         hi: 'वॉक-इन और कॉल के माध्यम से अपॉइंटमेंट भी उपलब्ध हैं।'
       }
+    },
+    process: {
+      step1: {
+        title: {
+          en: '1. Scan & Pay',
+          hi: '1. स्कैन करें और भुगतान करें',
+        },
+        description: {
+          en: 'Scan our UPI QR code and complete the consultation fee payment.',
+          hi: 'हमारे UPI QR कोड को स्कैन करें और परामर्श शुल्क का भुगतान पूरा करें।',
+        },
+      },
+      step2: {
+        title: {
+          en: '2. Save Payment Proof',
+          hi: '2. भुगतान का प्रमाण सहेजें',
+        },
+        description: {
+          en: 'Take a screenshot of the successful payment.',
+          hi: 'सफल भुगतान का स्क्रीनशॉट लें।',
+        },
+      },
+      step3: {
+        title: {
+          en: '3. Book Your Appointment',
+          hi: '3. अपनी अपॉइंटमेंट बुक करें',
+        },
+        description: {
+          en: 'Click the "Book Appointment" and fill out the form.',
+          hi: '"अपॉइंटमेंट बुक करें" पर क्लिक करें और फॉर्म भरें।',
+        },
+      },
     },
     urgent: {
       text: {
@@ -750,7 +1045,58 @@ const translations = {
       en: 'Get Directions',
       hi: 'रास्ता पाएं'
     }
-  }
+  },
+  // FAQ Section Translations
+  faq: {
+    title: {
+      en: 'Frequently Asked Questions',
+      hi: 'अक्सर पूछे जाने वाले प्रश्न',
+    },
+    subtitle: {
+      en: 'Find quick answers to common questions about our services',
+      hi: 'हमारी सेवाओं के बारे में सामान्य प्रश्नों के त्वरित उत्तर पाएं',
+    },
+    appointment: {
+      en: 'How do I book an appointment?',
+      hi: 'मैं अपॉइंटमेंट कैसे बुक करूं?',
+    },
+    appointmentAnswer: {
+      en: 'You can book an appointment by clicking on the "Book Appointment" button, calling us at 9534800801, or visiting our clinic in person.',
+      hi: 'आप "अपॉइंटमेंट बुक करें" बटन पर क्लिक करके, हमें 9534800801 पर कॉल करके, या व्यक्तिगत रूप से हमारे क्लिनिक में जाकर अपॉइंटमेंट बुक कर सकते हैं।',
+    },
+    homeDelivery: {
+      en: 'Is medicine home delivery available?',
+      hi: 'क्या दवा होम डिलीवरी उपलब्ध है?',
+    },
+    homeDeliveryAnswer: {
+      en: 'Yes, we provide free medicine delivery within a 3km radius of our clinic. Just call or WhatsApp us your prescription.',
+      hi: 'हां, हम अपने क्लिनिक के 3 किमी के दायरे में मुफ्त दवा वितरण प्रदान करते हैं। बस हमें अपना प्रिस्क्रिप्शन कॉल या व्हाट्सएप करें।',
+    },
+    timing: {
+      en: 'What are your clinic timings?',
+      hi: 'आपके क्लिनिक का समय क्या है?',
+    },
+    timingAnswer: {
+      en: 'Our clinic is open 24/7 for emergencies. Regular consultation hours are from 9:00 AM to 8:00 PM, Monday to Saturday.',
+      hi: 'हमारा क्लिनिक आपातकालीन स्थितियों के लिए 24/7 खुला है। नियमित परामर्श का समय सुबह 9:00 बजे से शाम 8:00 बजे तक, सोमवार से शनिवार तक है।',
+    },
+    payment: {
+      en: 'What payment methods do you accept?',
+      hi: 'आप कौन से भुगतान विधियों को स्वीकार करते हैं?',
+    },
+    paymentAnswer: {
+      en: 'We accept cash, credit/debit cards, and all UPI payment methods including PhonePe, Google Pay, and Paytm.',
+      hi: 'हम नकद, क्रेडिट/डेबिट कार्ड, और फोनपे, Google Pay, और Paytm सहित सभी UPI भुगतान विधियों को स्वीकार करते हैं।',
+    },
+    specialists: {
+      en: 'What specialist doctors are available?',
+      hi: 'कौन से विशेषज्ञ डॉक्टर उपलब्ध हैं?',
+    },
+    specialistsAnswer: {
+      en: 'We have specialists in Eye Care, Gynecology, Diabetes Management, ENT, and General Medicine. Visit our About page to learn more about our doctors.',
+      hi: 'हमारे पास आंखों की देखभाल, स्त्री रोग, मधुमेह प्रबंधन, ईएनटी और सामान्य चिकित्सा के विशेषज्ञ हैं। हमारे डॉक्टरों के बारे में अधिक जानने के लिए हमारा अबाउट पेज देखें।',
+    },
+  },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
