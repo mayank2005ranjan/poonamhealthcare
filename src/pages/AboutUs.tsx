@@ -43,8 +43,8 @@ const AboutUs = () => {
             <div className="flex flex-col-reverse md:flex-row items-center gap-8">
               <div className="w-full md:w-1/2">
                 <img 
-                  src="/hospital-reception.jpg" 
-                  alt="Poonam Health Care Reception" 
+                  src="/lovable-uploads/0acd3399-bd7e-492d-ae49-87fffb90151d.png" 
+                  alt="Doctor Patient Consultation" 
                   className="rounded-lg shadow-md w-full h-auto object-cover"
                   onError={(e) => {
                     e.currentTarget.src = 'https://placehold.co/600x400?text=Poonam+Health+Care';

@@ -17,30 +17,21 @@ interface Doctor {
 const doctors: Doctor[] = [
   {
     id: 1,
-    name: "Dr. Anjali Sharma",
-    degree: "MBBS, MS (Ophthalmology)",
-    department: "Eye Specialist",
-    experience: "10+ Years",
-    bio: "Specialist in cataract and LASIK surgeries.",
+    name: "Dr. Rakesh Roshan Chaudhary",
+    degree: "MBBS (DMCH), D.T.M & H (Medicine) MD (General Physician)",
+    department: "General Physician",
+    experience: "Heart, lung, stomach and diabetes specialist",
+    bio: "Specialist in heart, lung, stomach and diabetes cases.",
     imageSrc: "/doctor1.jpg"
   },
   {
     id: 2,
-    name: "Dr. Ravi Kumar",
-    degree: "MBBS, MD (Internal Medicine)",
-    department: "Diabetologist",
-    experience: "8+ Years",
-    bio: "Expert in diabetes management and lifestyle counseling.",
+    name: "Dr. Kumari Rashmi Chaudhary",
+    degree: "ΜΒΒS (ΑΝΜMC), MD (DMCH)",
+    department: "Gynaecologist & Anaesthesiologist",
+    experience: "Women's health specialist",
+    bio: "Expert in women's healthcare and maternal wellness.",
     imageSrc: "/doctor2.jpg"
-  },
-  {
-    id: 3,
-    name: "Dr. Priya Verma",
-    degree: "MBBS, MS (Gynecology)",
-    department: "Gynecologist",
-    experience: "12+ Years",
-    bio: "Specialized in women's health and prenatal care.",
-    imageSrc: "/doctor3.jpg"
   }
 ];
 
@@ -53,7 +44,7 @@ const DoctorsSection = () => {
           <p className="text-gray-600">Experienced specialists dedicated to your health and care.</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {doctors.map((doctor) => (
             <div key={doctor.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
               <div className="h-64 overflow-hidden">

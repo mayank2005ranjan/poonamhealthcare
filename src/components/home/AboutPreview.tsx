@@ -11,8 +11,8 @@ const AboutPreview = () => {
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="w-full md:w-2/5">
             <img 
-              src="/hospital-reception.jpg" 
-              alt="Poonam Health Care Reception" 
+              src="/lovable-uploads/d9e6aadb-caa5-4fbf-83a6-13f1cf8665c8.png" 
+              alt="Poonam Health Care Team" 
               className="rounded-lg shadow-md w-full h-auto object-cover"
               onError={(e) => {
                 e.currentTarget.src = 'https://placehold.co/600x400?text=Poonam+Health+Care';
